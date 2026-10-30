@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="312" viewBox="0 0 600 312" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>Admin - Conseils moderation - POPUP Publie</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="600" height="312"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="zAdminConseilsmoderationP_0"><rect x="0" y="0" width="600" height="312"/></clipPath></defs>
+<g clip-path="url(#zAdminConseilsmoderationP_0)">
+<rect x="0.0" y="0.0" width="600.0" height="312.0" rx="8.0" fill="#ffffff"/>
+<rect x="268.0" y="36.0" width="64.0" height="64.0" rx="32.0" fill="#e4efee"/>
+<g transform="translate(284.0,52.0)"><svg fill="none" height="32" stroke="#146B66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="32"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></g>
+<text x="217.2" y="137.4" font-size="26.0" fill="#000000" font-weight="700">Conseil publié</text>
+<text x="37.8" y="175.1" font-size="20.0" fill="#767674" font-weight="500">Il est désormais visible par les éleveurs de la filière bovins.</text>
+<text x="151.4" y="201.1" font-size="20.0" fill="#767674" font-weight="500">Il reste 5 conseils en modération.</text>
+<rect x="200.0" y="228.0" width="200.0" height="48.0" rx="8.0" fill="#146b66"/>
+<text x="258.8" y="260.1" font-size="20.0" fill="#ffffff" font-weight="700">Terminer</text>
+</g>
+</g>
+</svg>

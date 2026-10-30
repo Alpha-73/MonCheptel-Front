@@ -1,0 +1,588 @@
+{
+ "depart": "Veto - Connexion",
+ "liens": [
+  {
+   "source": "Veto - Connexion",
+   "element": "Se connecter",
+   "destination": "Veto - Accueil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Connexion",
+   "element": "Accéder à l'espace éleveur",
+   "destination": "Connexion - Rempli (page « 01 · Éleveur »)",
+   "type": "lien vers l'autre page",
+   "animation": {
+    "type": "Ouverture du prototype (nouvel onglet)",
+    "duree": null,
+    "courbe": null
+   },
+   "remarque": "clic ; Figma ne relie pas deux pages : lien « ouvrir le prototype »",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Accueil",
+   "element": "Éleveurs orientés vers vous",
+   "destination": "Veto - Eleveurs orientes",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur la carte « en attente »",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Accueil",
+   "element": "Mamadou Traoré",
+   "destination": "Veto - Demande detail",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur la demande récente",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Accueil",
+   "element": "Fanta Keïta",
+   "destination": "Veto - Demande detail",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur la demande récente",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Accueil",
+   "element": "Conseils publiés",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur la carte",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Eleveurs orientes",
+   "element": "Mamadou Traoré",
+   "destination": "Veto - Demande detail",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur la ligne",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Eleveurs orientes",
+   "element": "Fanta Keïta",
+   "destination": "Veto - Demande detail",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur la ligne",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Eleveurs orientes",
+   "element": "Ibrahim Sangaré",
+   "destination": "Veto - Demande detail",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur la ligne",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Demande detail",
+   "element": "Marquer comme traité",
+   "destination": "Veto - Demande detail - POPUP Cas traite",
+   "type": "superposition (pop-up)",
+   "animation": {
+    "type": "Fondu (Dissolve)",
+    "duree": 0.2,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Demande detail - POPUP Cas traite",
+   "element": "Voir les demandes restantes",
+   "destination": "Veto - Eleveurs orientes",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic (le pop-up se ferme)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Demande detail - POPUP Cas traite",
+   "element": "Retour à l'accueil",
+   "destination": "Veto - Accueil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic (le pop-up se ferme)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Mes conseils",
+   "element": "Rédiger un conseil",
+   "destination": "Veto - Conseil rediger",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Mes conseils",
+   "element": "Réduire les risques de Newcastle",
+   "destination": "Veto - Conseil modifier",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur le conseil (ou son crayon)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Mes conseils",
+   "element": "Améliorer la ponte en saison",
+   "destination": "Veto - Conseil modifier",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur le conseil (ou son crayon)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Mes conseils",
+   "element": "Repérer les signes de fièvre",
+   "destination": "Veto - Conseil modifier",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur le conseil (ou son crayon)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Conseil rediger",
+   "element": "Publier",
+   "destination": "Veto - Conseil rediger - POPUP Publie",
+   "type": "superposition (pop-up)",
+   "animation": {
+    "type": "Fondu (Dissolve)",
+    "duree": 0.2,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Conseil rediger - POPUP Publie",
+   "element": "Voir mes conseils",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic (le pop-up se ferme)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Conseil rediger - POPUP Publie",
+   "element": "Rédiger un autre",
+   "destination": "Veto - Conseil rediger",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic (le pop-up se ferme)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Conseil modifier",
+   "element": "Enregistrer les modifications",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic (le conseil repasse en modération)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Conseil modifier",
+   "element": "Supprimer ce conseil",
+   "destination": "Veto - Conseil modifier - POPUP Supprimer",
+   "type": "superposition (pop-up)",
+   "animation": {
+    "type": "Fondu (Dissolve)",
+    "duree": 0.2,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Conseil modifier - POPUP Supprimer",
+   "element": "Oui, supprimer",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic (le pop-up se ferme)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Conseil modifier - POPUP Supprimer",
+   "element": "Annuler",
+   "destination": "Veto - Conseil modifier",
+   "type": "fermeture du pop-up",
+   "animation": {
+    "type": "Fermeture de la superposition",
+    "duree": null,
+    "courbe": null
+   },
+   "remarque": "clic : on reste sur l'écran",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Profil",
+   "element": "Maladies que je traite",
+   "destination": "Veto - Competences",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Profil",
+   "element": "Se déconnecter",
+   "destination": "Veto - Connexion",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Competences",
+   "element": "Enregistrer",
+   "destination": "Veto - Competences - POPUP Enregistre",
+   "type": "superposition (pop-up)",
+   "animation": {
+    "type": "Fondu (Dissolve)",
+    "duree": 0.2,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Competences - POPUP Enregistre",
+   "element": "Terminer",
+   "destination": "Veto - Profil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic (le pop-up se ferme)",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Accueil",
+   "element": "Éleveurs",
+   "destination": "Veto - Eleveurs orientes",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Éleveurs » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Accueil",
+   "element": "Conseils",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Conseils » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Accueil",
+   "element": "Profil",
+   "destination": "Veto - Profil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Profil » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Eleveurs orientes",
+   "element": "Accueil",
+   "destination": "Veto - Accueil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Accueil » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Eleveurs orientes",
+   "element": "Conseils",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Conseils » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Eleveurs orientes",
+   "element": "Profil",
+   "destination": "Veto - Profil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Profil » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Mes conseils",
+   "element": "Accueil",
+   "destination": "Veto - Accueil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Accueil » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Mes conseils",
+   "element": "Éleveurs",
+   "destination": "Veto - Eleveurs orientes",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Éleveurs » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Mes conseils",
+   "element": "Profil",
+   "destination": "Veto - Profil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Profil » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Profil",
+   "element": "Accueil",
+   "destination": "Veto - Accueil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Accueil » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Profil",
+   "element": "Éleveurs",
+   "destination": "Veto - Eleveurs orientes",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Éleveurs » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Profil",
+   "element": "Conseils",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Conseils » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Competences",
+   "element": "Accueil",
+   "destination": "Veto - Accueil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Accueil » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Competences",
+   "element": "Éleveurs",
+   "destination": "Veto - Eleveurs orientes",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Éleveurs » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Competences",
+   "element": "Conseils",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Conseils » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Competences",
+   "element": "Profil",
+   "destination": "Veto - Profil",
+   "type": "navigation",
+   "animation": {
+    "type": "Animation intelligente (Smart animate)",
+    "duree": 0.3,
+    "courbe": "EASE_OUT"
+   },
+   "remarque": "clic sur l'onglet « Profil » de la barre du bas",
+   "statut": "vérifié"
+  },
+  {
+   "source": "Veto - Demande detail",
+   "element": "Rédiger un conseil pour cet éleveur (si le bouton existe dans ton Figma)",
+   "destination": "Veto - Conseil rediger",
+   "type": "navigation",
+   "remarque": "règle du plugin ; ce bouton n'est pas dans l'export SVG",
+   "statut": "à vérifier"
+  },
+  {
+   "source": "Veto - Conseil rediger",
+   "element": "Annuler / flèche retour (si présents)",
+   "destination": "Veto - Mes conseils",
+   "type": "navigation",
+   "remarque": "règle du plugin ; pas de texte « Annuler » dans l'export SVG",
+   "statut": "à vérifier"
+  },
+  {
+   "source": "Veto - Competences",
+   "element": "Annuler / flèche retour (si présents)",
+   "destination": "Veto - Profil",
+   "type": "navigation",
+   "remarque": "règle du plugin ; pas de texte « Annuler » dans l'export SVG",
+   "statut": "à vérifier"
+  }
+ ]
+}

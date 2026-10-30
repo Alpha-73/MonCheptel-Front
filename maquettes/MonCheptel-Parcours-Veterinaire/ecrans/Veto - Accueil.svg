@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="402" height="874" viewBox="0 0 402 874" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>02-accueil</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="402" height="874"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="z02accueil_0"><rect x="0" y="0" width="402" height="874"/></clipPath><clipPath id="z02accueil_1"><rect x="0" y="129" width="402" height="647"/></clipPath></defs>
+<g clip-path="url(#z02accueil_0)">
+<rect x="0.0" y="0.0" width="402.0" height="874.0" fill="#f4f4f2"/>
+<rect x="0.0" y="0.0" width="402.0" height="129.0" fill="#f4f4f2"/>
+<text x="16.0" y="86.8" font-size="14.0" fill="#767674" font-weight="500">Bonjour,</text>
+<text x="16.0" y="111.6" font-size="20.0" fill="#000000" font-weight="700">Dr Aïssata Traoré</text>
+<rect x="340.0" y="71.0" width="46.0" height="46.0" rx="23.0" fill="#e4efee"/>
+<text x="354.4" y="99.8" font-size="14.0" fill="#146b66" font-weight="700">AT</text>
+</g>
+<g clip-path="url(#z02accueil_1)">
+<rect x="16.0" y="133.0" width="370.0" height="85.0" rx="8.0" fill="#e4efee" stroke="#146b66" stroke-width="1.0"/>
+<text x="33.0" y="175.6" font-size="24.0" fill="#000000" font-weight="700">3</text>
+<text x="33.0" y="197.3" font-size="14.0" fill="#767674" font-weight="500">en attente</text>
+<rect x="112.1" y="153.5" width="1.5" height="44.0" fill="#146b66"/>
+<text x="129.6" y="172.6" font-size="16.0" fill="#333333" font-weight="700">Éleveurs orientés vers vous</text>
+<text x="129.6" y="191.8" font-size="14.0" fill="#767674" font-weight="500">Dont 2 cas de gravité élevée</text>
+<g transform="translate(347.0,164.5)"><svg fill="none" height="22" stroke="#146B66" stroke-linecap="round" stroke-width="2.4" viewBox="0 0 24 24" width="22"><path d="M9 5l7 7-7 7"></path></svg></g>
+<rect x="16.0" y="230.0" width="180.0" height="81.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="31.0" y="270.6" font-size="24.0" fill="#000000" font-weight="700">12</text>
+<text x="31.0" y="292.3" font-size="14.0" fill="#767674" font-weight="500">Cas traités ce mois</text>
+<rect x="206.0" y="230.0" width="180.0" height="81.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="221.0" y="270.6" font-size="24.0" fill="#000000" font-weight="700">7</text>
+<text x="221.0" y="292.3" font-size="14.0" fill="#767674" font-weight="500">Conseils publiés</text>
+<text x="16.0" y="342.3" font-size="18.0" fill="#000000" font-weight="700">Demandes récentes</text>
+<rect x="16.0" y="359.0" width="370.0" height="72.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<rect x="29.0" y="372.0" width="46.0" height="46.0" rx="23.0" fill="#e4efee"/>
+<text x="41.5" y="400.8" font-size="14.0" fill="#146b66" font-weight="700">MT</text>
+<text x="87.0" y="392.1" font-size="16.0" fill="#333333" font-weight="700">Mamadou Traoré</text>
+<text x="87.0" y="411.3" font-size="14.0" fill="#767674" font-weight="500">Newcastle · LOT #024</text>
+<rect x="315.3" y="381.5" width="57.7" height="27.0" rx="16.0" fill="#fae8e8"/>
+<text x="327.3" y="400.8" font-size="14.0" fill="#c43d3d" font-weight="700">Élevé</text>
+<rect x="16.0" y="443.0" width="370.0" height="72.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<rect x="29.0" y="456.0" width="46.0" height="46.0" rx="23.0" fill="#e4efee"/>
+<text x="43.7" y="484.8" font-size="14.0" fill="#146b66" font-weight="700">FK</text>
+<text x="87.0" y="476.1" font-size="16.0" fill="#333333" font-weight="700">Fanta Keïta</text>
+<text x="87.0" y="495.3" font-size="14.0" fill="#767674" font-weight="500">Coccidiose · LOT #011</text>
+<rect x="306.4" y="465.5" width="66.6" height="27.0" rx="16.0" fill="#fdeee1"/>
+<text x="318.4" y="484.8" font-size="14.0" fill="#f4a259" font-weight="700">Moyen</text>
+<text x="16.0" y="546.3" font-size="18.0" fill="#000000" font-weight="700">Vos filières</text>
+<rect x="16.0" y="563.0" width="370.0" height="53.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<rect x="29.0" y="576.0" width="70.7" height="27.0" rx="16.0" fill="#e4efee"/>
+<text x="41.0" y="595.3" font-size="14.0" fill="#146b66" font-weight="700">Volaille</text>
+<rect x="109.7" y="576.0" width="66.6" height="27.0" rx="16.0" fill="#e4efee"/>
+<text x="121.7" y="595.3" font-size="14.0" fill="#146b66" font-weight="700">Bovins</text>
+</g>
+<g clip-path="url(#z02accueil_0)">
+<rect x="0.0" y="776.0" width="402.0" height="98.0" fill="#f4f4f2" stroke="#d8d8d5" stroke-width="1.0"/>
+<rect x="28.5" y="782.0" width="70.9" height="53.0" rx="16.0" fill="#e4efee"/>
+<g transform="translate(51.9,786.0)"><svg fill="none" height="24" stroke="#146B66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" viewBox="0 0 24 24" width="24"><path d="M3 11.2 L12 3.5 L21 11.2"></path><path d="M5.5 9.6V20h13V9.6"></path><path d="M9.8 20v-5.6h4.4V20"></path></svg></g>
+<text x="40.5" y="827.3" font-size="14.0" fill="#146b66" font-weight="700">Accueil</text>
+<g transform="translate(154.9,786.0)"><svg fill="none" height="24" stroke="#767674" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><circle cx="12" cy="8" r="3.6"></circle><path d="M4.8 20.4c0-3.6 3.2-5.6 7.2-5.6s7.2 2 7.2 5.6"></path></svg></g>
+<text x="140.3" y="827.3" font-size="14.0" fill="#767674" font-weight="500">Éleveurs</text>
+<g transform="translate(249.5,786.0)"><svg fill="none" height="24" stroke="#767674" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M6 3.4h9l3.6 3.6v13.6H6z"></path><path d="M9.4 11.6h5.2M9.4 15.2h3.6"></path></svg></g>
+<text x="234.5" y="827.3" font-size="14.0" fill="#767674" font-weight="500">Conseils</text>
+<g transform="translate(339.5,786.0)"><svg fill="none" height="24" stroke="#767674" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M12 3.2 20 6.4v5.6c0 4.4-3.3 7.6-8 8.8-4.7-1.2-8-4.4-8-8.8V6.4z"></path><path d="M12 9.6v5.2M9.4 12.2h5.2"></path></svg></g>
+<text x="334.6" y="827.3" font-size="14.0" fill="#767674" font-weight="500">Profil</text>
+</g>
+</g>
+</svg>

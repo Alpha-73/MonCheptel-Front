@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="402" height="874" viewBox="0 0 402 874" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>07-rediger-un-conseil</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="402" height="874"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="z07redigerunconseil_0"><rect x="0" y="0" width="402" height="874"/></clipPath><clipPath id="z07redigerunconseil_1"><rect x="0" y="135" width="402" height="649"/></clipPath><clipPath id="z07redigerunconseil_2"><rect x="16" y="581" width="370" height="87"/></clipPath></defs>
+<g clip-path="url(#z07redigerunconseil_0)">
+<rect x="0.0" y="0.0" width="402.0" height="874.0" fill="#f4f4f2"/>
+<rect x="0.0" y="0.0" width="402.0" height="135.0" fill="#f4f4f2"/>
+<g transform="translate(16.0,82.0)"><svg fill="none" height="30" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewBox="0 0 24 24" width="30"><path d="M15 19 L8 12 L15 5"></path></svg></g>
+<text x="56.0" y="105.1" font-size="20.0" fill="#000000" font-weight="700">Rédiger un conseil</text>
+</g>
+<g clip-path="url(#z07redigerunconseil_1)">
+<text x="16.0" y="154.3" font-size="14.0" fill="#767674" font-weight="500">Filière concernée</text>
+<rect x="16.0" y="170.0" width="89.3" height="44.0" rx="16.0" fill="#146b66"/>
+<text x="34.0" y="198.6" font-size="16.0" fill="#ffffff" font-weight="700">Volaille</text>
+<rect x="115.3" y="170.0" width="86.7" height="44.0" rx="16.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="134.3" y="198.6" font-size="16.0" fill="#767674" font-weight="600">Bovins</text>
+<text x="16.0" y="241.3" font-size="14.0" fill="#767674" font-weight="500">Catégorie</text>
+<rect x="16.0" y="257.0" width="77.4" height="44.0" rx="16.0" fill="#146b66"/>
+<text x="34.0" y="285.6" font-size="16.0" fill="#ffffff" font-weight="700">Santé</text>
+<rect x="103.4" y="257.0" width="116.9" height="44.0" rx="16.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="122.4" y="285.6" font-size="16.0" fill="#767674" font-weight="600">Production</text>
+<rect x="230.3" y="257.0" width="97.0" height="44.0" rx="16.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="249.3" y="285.6" font-size="16.0" fill="#767674" font-weight="600">Hygiène</text>
+<text x="16.0" y="328.3" font-size="14.0" fill="#767674" font-weight="500">Titre</text>
+<rect x="16.0" y="336.0" width="370.0" height="48.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="31.0" y="366.6" font-size="16.0" fill="#333333" font-weight="500">Réduire les risques de Newcastle</text>
+<text x="16.0" y="411.3" font-size="14.0" fill="#767674" font-weight="500">Contenu</text>
+<rect x="16.0" y="419.0" width="370.0" height="150.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="31.0" y="449.1" font-size="16.0" fill="#767674" font-weight="500">Expliquez simplement, en vous adressant</text>
+<text x="31.0" y="470.1" font-size="16.0" fill="#767674" font-weight="500">directement à l'éleveur.</text>
+<rect x="16.0" y="581.0" width="370.0" height="87.0" rx="8.0" fill="#fdeee1"/>
+</g>
+<g clip-path="url(#z07redigerunconseil_2)">
+<rect x="16.0" y="581.0" width="3.0" height="87.0" fill="#f4a259"/>
+<text x="33.0" y="610.1" font-size="16.0" fill="#333333" font-weight="500">Votre conseil sera visible par les éleveurs de la</text>
+<text x="33.0" y="631.1" font-size="16.0" fill="#333333" font-weight="500">filière choisie. L'administrateur peut le retirer</text>
+<text x="33.0" y="652.1" font-size="16.0" fill="#333333" font-weight="500">s'il ne respecte pas la charte.</text>
+</g>
+<g clip-path="url(#z07redigerunconseil_0)">
+<rect x="16.0" y="792.0" width="370.0" height="48.0" rx="8.0" fill="#146b66"/>
+<text x="175.4" y="822.6" font-size="16.0" fill="#ffffff" font-weight="700">Publier</text>
+</g>
+</g>
+</svg>

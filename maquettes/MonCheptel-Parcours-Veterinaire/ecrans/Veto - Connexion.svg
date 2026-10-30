@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="402" height="874" viewBox="0 0 402 874" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>01-connexion</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="402" height="874"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="z01connexion_0"><rect x="0" y="0" width="402" height="874"/></clipPath></defs>
+<g clip-path="url(#z01connexion_0)">
+<rect x="0.0" y="0.0" width="402.0" height="874.0" fill="#f4f4f2"/>
+<rect x="20.0" y="99.0" width="56.0" height="56.0" rx="16.0" fill="#146b66"/>
+<g transform="translate(33.0,112.0)"><svg fill="none" height="30" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="30">
+<path d="M12 3.2 20 6.4v5.6c0 4.4-3.3 7.6-8 8.8-4.7-1.2-8-4.4-8-8.8V6.4z"></path>
+<path d="M12 9.6v5.2M9.4 12.2h5.2"></path></svg></g>
+<text x="20.0" y="204.1" font-size="20.0" fill="#000000" font-weight="700">Espace vétérinaire</text>
+<text x="20.0" y="236.1" font-size="16.0" fill="#767674" font-weight="500">Connectez-vous avec les identifiants fournis par</text>
+<text x="20.0" y="257.1" font-size="16.0" fill="#767674" font-weight="500">l'administrateur.</text>
+<text x="20.0" y="306.3" font-size="14.0" fill="#767674" font-weight="500">Téléphone ou e-mail</text>
+<rect x="20.0" y="314.0" width="362.0" height="48.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="35.0" y="344.6" font-size="16.0" fill="#333333" font-weight="500">aissata.traore@moncheptel.ml</text>
+<text x="20.0" y="387.3" font-size="14.0" fill="#767674" font-weight="500">Mot de passe</text>
+<rect x="20.0" y="395.0" width="362.0" height="48.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="35.0" y="425.6" font-size="16.0" fill="#333333" font-weight="500">••••••••</text>
+<rect x="20.0" y="469.0" width="362.0" height="48.0" rx="8.0" fill="#146b66"/>
+<text x="153.7" y="499.6" font-size="16.0" fill="#ffffff" font-weight="700">Se connecter</text>
+<text x="33.9" y="820.1" font-size="16.0" fill="#767674" font-weight="500">Vous êtes éleveur ?</text>
+<text x="176.8" y="820.1" font-size="16.0" fill="#146b66" font-weight="700">Accéder à l'espace éleveur</text>
+</g>
+</g>
+</svg>

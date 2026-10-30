@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="402" height="874" viewBox="0 0 402 874" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>03-eleveurs-orientes</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="402" height="874"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="z03eleveursorientes_0"><rect x="0" y="0" width="402" height="874"/></clipPath><clipPath id="z03eleveursorientes_1"><rect x="0" y="135" width="402" height="641"/></clipPath></defs>
+<g clip-path="url(#z03eleveursorientes_0)">
+<rect x="0.0" y="0.0" width="402.0" height="874.0" fill="#f4f4f2"/>
+<rect x="0.0" y="0.0" width="402.0" height="135.0" fill="#f4f4f2"/>
+<text x="16.0" y="105.1" font-size="20.0" fill="#000000" font-weight="700">Éleveurs orientés</text>
+</g>
+<g clip-path="url(#z03eleveursorientes_1)">
+<rect x="16.0" y="139.0" width="133.4" height="44.0" rx="16.0" fill="#146b66"/>
+<text x="34.0" y="167.6" font-size="16.0" fill="#ffffff" font-weight="700">En attente (3)</text>
+<rect x="159.4" y="139.0" width="112.5" height="44.0" rx="16.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="178.4" y="167.6" font-size="16.0" fill="#767674" font-weight="600">Traités (2)</text>
+<rect x="16.0" y="195.0" width="370.0" height="126.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="31.0" y="227.1" font-size="16.0" fill="#333333" font-weight="700">Mamadou Traoré</text>
+<rect x="313.3" y="210.0" width="57.7" height="27.0" rx="16.0" fill="#fae8e8"/>
+<text x="325.3" y="229.3" font-size="14.0" fill="#c43d3d" font-weight="700">Élevé</text>
+<text x="31.0" y="258.1" font-size="16.0" fill="#333333" font-weight="500">Maladie de Newcastle</text>
+<text x="31.0" y="281.3" font-size="14.0" fill="#767674" font-weight="500">LOT #024 · 850 sujets · Bamako</text>
+<text x="31.0" y="302.3" font-size="14.0" fill="#767674" font-weight="500">Signalé il y a 2 heures</text>
+<rect x="16.0" y="333.0" width="370.0" height="126.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="31.0" y="365.1" font-size="16.0" fill="#333333" font-weight="700">Fanta Keïta</text>
+<rect x="304.4" y="348.0" width="66.6" height="27.0" rx="16.0" fill="#fdeee1"/>
+<text x="316.4" y="367.3" font-size="14.0" fill="#f4a259" font-weight="700">Moyen</text>
+<text x="31.0" y="396.1" font-size="16.0" fill="#333333" font-weight="500">Coccidiose</text>
+<text x="31.0" y="419.3" font-size="14.0" fill="#767674" font-weight="500">LOT #011 · 320 sujets · Bamako</text>
+<text x="31.0" y="440.3" font-size="14.0" fill="#767674" font-weight="500">Signalé hier</text>
+<rect x="16.0" y="471.0" width="370.0" height="126.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="31.0" y="503.1" font-size="16.0" fill="#333333" font-weight="700">Ibrahim Sangaré</text>
+<rect x="313.3" y="486.0" width="57.7" height="27.0" rx="16.0" fill="#fae8e8"/>
+<text x="325.3" y="505.3" font-size="14.0" fill="#c43d3d" font-weight="700">Élevé</text>
+<text x="31.0" y="534.1" font-size="16.0" fill="#333333" font-weight="500">Fièvre aphteuse</text>
+<text x="31.0" y="557.3" font-size="14.0" fill="#767674" font-weight="500">BOV-031 · Zébu · Koulikoro</text>
+<text x="31.0" y="578.3" font-size="14.0" fill="#767674" font-weight="500">Signalé il y a 2 jours</text>
+</g>
+<g clip-path="url(#z03eleveursorientes_0)">
+<rect x="0.0" y="776.0" width="402.0" height="98.0" fill="#f4f4f2" stroke="#d8d8d5" stroke-width="1.0"/>
+<g transform="translate(39.7,786.0)"><svg fill="none" height="24" stroke="#767674" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M3 11.2 L12 3.5 L21 11.2"></path><path d="M5.5 9.6V20h13V9.6"></path><path d="M9.8 20v-5.6h4.4V20"></path></svg></g>
+<text x="28.5" y="827.3" font-size="14.0" fill="#767674" font-weight="500">Accueil</text>
+<rect x="115.8" y="782.0" width="77.9" height="53.0" rx="16.0" fill="#e4efee"/>
+<g transform="translate(142.7,786.0)"><svg fill="none" height="24" stroke="#146B66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" viewBox="0 0 24 24" width="24"><circle cx="12" cy="8" r="3.6"></circle><path d="M4.8 20.4c0-3.6 3.2-5.6 7.2-5.6s7.2 2 7.2 5.6"></path></svg></g>
+<text x="127.8" y="827.3" font-size="14.0" fill="#146b66" font-weight="700">Éleveurs</text>
+<g transform="translate(249.6,786.0)"><svg fill="none" height="24" stroke="#767674" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M6 3.4h9l3.6 3.6v13.6H6z"></path><path d="M9.4 11.6h5.2M9.4 15.2h3.6"></path></svg></g>
+<text x="234.6" y="827.3" font-size="14.0" fill="#767674" font-weight="500">Conseils</text>
+<g transform="translate(339.5,786.0)"><svg fill="none" height="24" stroke="#767674" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M12 3.2 20 6.4v5.6c0 4.4-3.3 7.6-8 8.8-4.7-1.2-8-4.4-8-8.8V6.4z"></path><path d="M12 9.6v5.2M9.4 12.2h5.2"></path></svg></g>
+<text x="334.7" y="827.3" font-size="14.0" fill="#767674" font-weight="500">Profil</text>
+</g>
+</g>
+</svg>

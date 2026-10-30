@@ -1,0 +1,129 @@
+<app-en-tete [titre]="fiche.donnees()?.profil?.nom ?? 'Fiche éleveur'" [sousTitre]="sousTitre()" />
+
+<div class="contenu">
+  <app-retour lien="/utilisateurs" texte="Retour aux éleveurs" />
+
+  @if (fiche.erreur(); as erreur) {
+    <app-etat type="erreur" [message]="erreur" (reessayer)="fiche.charger()" />
+  } @else if (!fiche.donnees()) {
+    <app-etat type="chargement" message="Chargement de la fiche…" />
+  } @else {
+    @let f = fiche.donnees()!;
+    @let eleveur = f.profil.role === 'ELEVEUR';
+    <div class="disposition">
+      <section class="identite" aria-label="Identité">
+        <div class="tete">
+          <span class="avatar" aria-hidden="true">{{ initiales(f.profil.nom) }}</span>
+          <div class="nom">
+            <strong>{{ f.profil.role | libelle: 'role' }}</strong>
+            <span>Inscrit le {{ f.profil.dateInscription | dateLongue }}</span>
+          </div>
+          @if (eleveur) {
+            <a class="icone-action" [routerLink]="['/utilisateurs', f.profil.id, 'modifier']" title="Modifier" aria-label="Modifier l'éleveur">
+              <app-icone nom="crayon" [taille]="18" [epaisseur]="2" />
+            </a>
+          }
+        </div>
+        <dl>
+          <div><dt>E-mail</dt><dd class="coupe">{{ f.profil.email || '—' }}</dd></div>
+          <div><dt>Téléphone</dt><dd>{{ f.profil.telephone || '—' }}</dd></div>
+          <div><dt>Zone</dt><dd>{{ f.profil.zone?.nom ?? '—' }}</dd></div>
+          <div><dt>Langue</dt><dd>{{ f.profil.langue | libelle: 'langue' }}</dd></div>
+          @if (eleveur) {
+            <div>
+              <dt>Filières</dt>
+              <dd class="pastilles">
+                @for (fi of f.profil.filieresPratiquees ?? []; track fi) {
+                  <span class="badge vert">{{ fi | libelle: 'filiere' }}</span>
+                } @empty { — }
+              </dd>
+            </div>
+          }
+          <div>
+            <dt>Statut</dt>
+            <dd class="pastilles">
+              @if (f.actif) { <span class="badge vert">Actif</span> } @else { <span class="badge gris">Désactivé</span> }
+              @if (f.verrouille) { <span class="badge orange">Verrouillé</span> }
+            </dd>
+          </div>
+        </dl>
+        @if (information(); as i) { <div class="message-info" role="status">{{ i }}</div> }
+        @if (eleveur) {
+          <div class="pied">
+            @if (f.actif) {
+              <button type="button" class="bouton bouton-contour-danger plein" (click)="ouvrir(popup)">Désactiver ce compte</button>
+            } @else {
+              <button type="button" class="bouton bouton-contour plein" [disabled]="envoi()" (click)="changerActivation(true)">Réactiver ce compte</button>
+            }
+            <button type="button" class="bouton bouton-contour plein" (click)="ouvrir(reinit)">Réinitialiser le mot de passe</button>
+            <button type="button" class="lien-danger" (click)="ouvrir(suppression)">Supprimer définitivement</button>
+          </div>
+        } @else {
+          <p class="encadre vert">Compte administrateur : il ne se désactive ni ne se supprime depuis la console.</p>
+        }
+        @if (erreurAction() && !popup() && !reinit() && !suppression()) { <div class="message-erreur" role="alert">{{ erreurAction() }}</div> }
+      </section>
+
+      <div class="droite">
+        @if (eleveur) {
+          <div class="deux-tuiles">
+            <div class="tuile">
+              <span class="tuile-icone" aria-hidden="true"><app-icone nom="patte" [taille]="18" [epaisseur]="2" /></span>
+              <div class="etiquette">Animaux et lots</div>
+              <div class="valeur">{{ f.tetes | nombre }}</div>
+              <div class="sous">{{ pluriel(f.unites, 'unité d’élevage', 'unités d’élevage') }}</div>
+            </div>
+            <div class="tuile">
+              <span class="tuile-icone orange" aria-hidden="true"><app-icone nom="triangle" [taille]="18" [epaisseur]="2" /></span>
+              <div class="etiquette">Signalements</div>
+              <div class="valeur">{{ f.signalements | nombre }}</div>
+              <div class="sous">{{ f.signalementsEnCours | nombre }} en cours</div>
+            </div>
+          </div>
+        }
+
+        <h2 class="titre-section">Activité récente</h2>
+        <ol class="activite">
+          @for (a of f.activite; track $index) {
+            <li><time>{{ a.date | dateCourte }}</time><span>{{ a.libelle }}</span></li>
+          } @empty {
+            <li class="vide">Aucune activité récente.</li>
+          }
+        </ol>
+      </div>
+    </div>
+
+    @if (popup()) {
+      <app-modale titre="Désactiver ce compte ?" ton="danger" [fermable]="!envoi()" (fermer)="popup.set(false)">
+        <p>{{ f.profil.nom }} ne pourra plus se connecter. Ses données restent ; le compte se réactive.</p>
+        @if (erreurAction(); as e) { <div class="message-erreur" role="alert">{{ e }}</div> }
+        <ng-container actions>
+          <button type="button" class="bouton bouton-contour" (click)="popup.set(false)">Annuler</button>
+          <button type="button" class="bouton bouton-danger" [disabled]="envoi()" (click)="changerActivation(false)">Désactiver le compte</button>
+        </ng-container>
+      </app-modale>
+    }
+
+    @if (reinit()) {
+      <app-modale titre="Réinitialiser le mot de passe ?" [fermable]="!envoi()" (fermer)="reinit.set(false)">
+        <p>Un mot de passe provisoire part à <strong>{{ f.profil.email }}</strong>. {{ f.profil.nom }} le changera à sa prochaine connexion. Ses sessions sont fermées{{ f.verrouille ? ' et le compte déverrouillé' : '' }}.</p>
+        @if (erreurAction(); as e) { <div class="message-erreur" role="alert">{{ e }}</div> }
+        <ng-container actions>
+          <button type="button" class="bouton bouton-contour" (click)="reinit.set(false)">Annuler</button>
+          <button type="button" class="bouton bouton-primaire" [disabled]="envoi()" (click)="reinitialiser()">Envoyer</button>
+        </ng-container>
+      </app-modale>
+    }
+
+    @if (suppression()) {
+      <app-modale titre="Supprimer ce compte ?" ton="danger" [fermable]="!envoi()" (fermer)="suppression.set(false)">
+        <p>{{ f.profil.nom }} sera supprimé <strong>définitivement</strong>, avec {{ f.unites ? 'son cheptel (' + pluriel(f.unites, 'unité d’élevage', 'unités d’élevage') + '), ' : '' }}ses signalements et ses opérations. Action irréversible.</p>
+        @if (erreurAction(); as e) { <div class="message-erreur" role="alert">{{ e }}</div> }
+        <ng-container actions>
+          <button type="button" class="bouton bouton-contour" (click)="suppression.set(false)">Annuler</button>
+          <button type="button" class="bouton bouton-danger" [disabled]="envoi()" (click)="supprimer()">Supprimer</button>
+        </ng-container>
+      </app-modale>
+    }
+  }
+</div>

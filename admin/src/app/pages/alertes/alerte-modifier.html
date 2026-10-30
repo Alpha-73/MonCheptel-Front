@@ -1,0 +1,68 @@
+<app-en-tete titre="Modifier une alerte" [sousTitre]="sousTitre()" />
+
+<div class="contenu">
+  <app-retour lien="/alertes" texte="Retour aux alertes" />
+
+  @if (erreurChargement(); as e) {
+    <app-etat type="erreur" [message]="e" (reessayer)="charger()" />
+  } @else if (!alerte()) {
+    <app-etat type="chargement" />
+  } @else {
+    @let a = alerte()!;
+    <form class="carte carte-formulaire" (submit)="$event.preventDefault(); enregistrer()" novalidate>
+      <div class="grille-champs">
+        <div class="champ">
+          <label for="maladie">Maladie</label>
+          <select id="maladie" disabled title="Figée au déclenchement"><option>{{ a.maladie }}</option></select>
+        </div>
+        <div class="champ">
+          <label for="filiere">Filière</label>
+          <select id="filiere" disabled title="Figée au déclenchement">
+            <option>{{ a.filiere ? libelleFiliere(a.filiere) : 'Toutes ses filières' }}</option>
+          </select>
+        </div>
+        <div class="champ">
+          <label for="zone">Zone concernée</label>
+          <select id="zone" disabled title="Figée au déclenchement"><option>{{ a.zone }}</option></select>
+        </div>
+        <div class="champ">
+          <label for="dateFin">Fin de l'alerte <span class="facultatif">facultatif</span></label>
+          <input id="dateFin" type="date" [formControl]="dateFin" [min]="aujourdhui" />
+          <small class="aide-champ">Sans date, l'alerte reste active jusqu'à sa clôture.</small>
+        </div>
+        <div class="champ large" [class.invalide]="message.touched && message.invalid">
+          <label for="message">Message envoyé aux éleveurs</label>
+          <textarea id="message" [formControl]="message" appChamp maxlength="500"></textarea>
+        </div>
+      </div>
+
+      @if (a.statut === 'ACTIVE') {
+        <div class="encadre">Le nouveau message s'affiche dans le bandeau d'alerte de l'application. Les notifications déjà reçues gardent l'ancien texte.</div>
+      } @else {
+        <div class="encadre">Cette alerte est terminée : elle n'est plus modifiable. Pour viser à nouveau cette zone, déclenchez une nouvelle alerte.</div>
+      }
+
+      @if (erreur(); as e) { <div class="message-erreur" id="erreur-formulaire" role="alert">{{ e }}</div> }
+      <div class="actions-formulaire">
+        @if (a.statut === 'ACTIVE') {
+          <button type="submit" class="bouton bouton-primaire" [disabled]="envoi()">Enregistrer</button>
+          <button type="button" class="bouton bouton-contour" (click)="annuler()">Annuler</button>
+          <button type="button" class="bouton bouton-contour-danger" (click)="popup.set(true)">Clôturer l'alerte</button>
+        } @else {
+          <button type="button" class="bouton bouton-contour" (click)="annuler()">Retour aux alertes</button>
+        }
+      </div>
+    </form>
+
+    @if (popup()) {
+      <app-modale [fermable]="!envoi()" titre="Clôturer cette alerte ?" (fermer)="popup.set(false)">
+        <p>L'alerte « {{ a.maladie }} — {{ a.zone }} » passera en terminée et disparaîtra du tableau de bord {{ desEleveursConcernes(a.portee) }}.</p>
+        @if (erreur(); as e) { <div class="message-erreur" role="alert">{{ e }}</div> }
+        <ng-container actions>
+          <button type="button" class="bouton bouton-contour" (click)="popup.set(false)">Annuler</button>
+          <button type="button" class="bouton bouton-primaire" [disabled]="envoi()" (click)="cloturer()">Clôturer l'alerte</button>
+        </ng-container>
+      </app-modale>
+    }
+  }
+</div>

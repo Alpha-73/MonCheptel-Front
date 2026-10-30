@@ -1,0 +1,51 @@
+<app-en-tete titre="Éleveurs" sousTitre="Inscrits sur la plateforme" />
+
+<div class="contenu">
+  <div class="barre-outils">
+    <app-recherche placeholder="Rechercher un éleveur…" [valeur]="recherche()" (valeurChange)="filtrer(() => recherche.set($event))" />
+    <app-filtre libelle="Filière" [options]="optionsFiliere" [valeur]="filiere()" (valeurChange)="filtrer(() => filiere.set($event))" />
+    <app-filtre libelle="Zone" [options]="optionsZone()" [valeur]="zoneId()" (valeurChange)="filtrer(() => zoneId.set($event))" libelleTous="Toutes" />
+    <app-filtre libelle="Statut" [options]="optionsStatut" [valeur]="actif()" (valeurChange)="filtrer(() => actif.set($event))" />
+  </div>
+
+  @if (liste.erreur(); as erreur) {
+    <app-etat type="erreur" [message]="erreur" (reessayer)="liste.charger()" />
+  } @else if (!liste.donnees()) {
+    <div class="carte"><app-etat type="chargement" message="Chargement des éleveurs…" [lignes]="6" /></div>
+  } @else {
+    @let p = liste.donnees()!;
+    <table class="tableau" [attr.aria-busy]="liste.enCours()">
+      <caption class="visuellement-cache">Éleveurs, page {{ p.page + 1 }}</caption>
+      <thead>
+        <tr><th scope="col">Nom</th><th scope="col">Téléphone</th><th scope="col">Zone</th><th scope="col">Filières</th><th scope="col">Statut</th></tr>
+      </thead>
+      <tbody>
+        @for (u of p.elements; track u.id) {
+          <tr class="lien-ligne">
+            <td>
+              <a class="etendu nom-avatar" [routerLink]="['/utilisateurs', u.id]">
+                <span class="avatar-liste" aria-hidden="true">{{ u.nom | initiales }}</span>{{ u.nom }}
+              </a>
+            </td>
+            <td>{{ u.telephone || '—' }}</td>
+            <td>{{ u.zone || '—' }}</td>
+            <td>{{ u.filieres | filieres }}</td>
+            <td>
+              @if (u.actif) {
+                <span class="badge vert">Actif</span>
+              } @else {
+                <span class="badge gris">Désactivé</span>
+              }
+              @if (u.verrouille) {
+                <span class="badge orange">Verrouillé</span>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr class="ligne-etat"><td colspan="5"><app-etat type="vide" message="Aucun éleveur ne correspond à ces critères." /></td></tr>
+        }
+      </tbody>
+    </table>
+    <app-pagination [page]="p.page" [taille]="p.taille" [total]="p.total" unite="éleveur" (pageChange)="page.set($event)" />
+  }
+</div>

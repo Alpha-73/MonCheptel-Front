@@ -1,0 +1,33 @@
+.disposition { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 32px; align-items: start; max-width: 1180px; }
+.identite { padding: 18px 20px; background: var(--blanc); border: 1px solid var(--filet); border-radius: var(--rayon); }
+.tete {
+  display: flex; align-items: center; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--filet);
+  .avatar {
+    flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--vert-pale); color: var(--logo-vert);
+    display: grid; place-items: center; font-family: var(--police-titre); font-size: 20px; font-weight: 800;
+  }
+  .nom { flex: 1; min-width: 0; }
+  strong { display: block; font-size: 15px; color: var(--titre); }
+  span { color: var(--gris); font-size: 13px; }
+}
+dl { margin: 6px 0 0; }
+dl > div { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 40px; border-bottom: 1px dashed var(--filet); }
+dl > div:last-child { border-bottom: 0; }
+dt { color: var(--gris); }
+dd { margin: 0; font-weight: 800; color: var(--texte); text-align: right; }
+.pastilles { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.pastilles .badge + .badge { margin-left: 0; }
+.pied { display: grid; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--filet); }
+.plein { width: 100%; }
+.deux-tuiles { grid-template-columns: 1fr 1fr; margin-bottom: 22px; }
+.coupe { overflow-wrap: anywhere; }
+.activite {
+  list-style: none; margin: 0; padding: 0; position: relative;
+  &::before { content: ''; position: absolute; left: 70px; top: 8px; bottom: 8px; width: 2px; background: var(--filet); }
+  li { position: relative; display: flex; gap: 26px; padding: 7px 0; animation: monter .4s ease-out backwards; }
+  li::before { content: ''; position: absolute; left: 66px; top: 13px; width: 10px; height: 10px; border-radius: 50%; background: var(--vert); border: 2px solid var(--fond); }
+  time { flex: none; width: 56px; font-size: 13px; font-weight: 800; color: var(--gris); text-align: right; }
+  .vide { color: var(--gris); padding-left: 96px; }
+  .vide::before { display: none; }
+}
+@media (max-width: 1100px) { .disposition { grid-template-columns: 1fr; } }

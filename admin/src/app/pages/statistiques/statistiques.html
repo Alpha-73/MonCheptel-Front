@@ -1,0 +1,118 @@
+<app-en-tete titre="Statistiques" sousTitre="Adoption et activité de la plateforme" />
+
+<div class="contenu">
+  @if (stats.erreur(); as erreur) {
+    <app-etat type="erreur" [message]="erreur" (reessayer)="recharger()" />
+  } @else if (!stats.donnees()) {
+    <app-etat type="chargement" message="Calcul des statistiques…" />
+  } @else {
+    @let s = stats.donnees()!;
+    <div class="tuiles">
+      <div class="tuile">
+        <span class="tuile-icone" aria-hidden="true"><app-icone nom="utilisateur" [taille]="18" [epaisseur]="2" /></span>
+        <div class="etiquette">Utilisateurs</div>
+        <div class="valeur" [appCompteur]="s.utilisateurs"></div>
+        <div class="sous">+ {{ s.inscritsCeMois | nombre }} ce mois</div>
+      </div>
+      <div class="tuile">
+        <span class="tuile-icone" aria-hidden="true"><app-icone nom="courbe" [taille]="18" [epaisseur]="2" /></span>
+        <div class="etiquette">Taux de rétention 30j</div>
+        <div class="valeur">{{ s.tauxRetention30j | nombre }} %</div>
+        <div class="sous">comptes actifs ces 30 jours</div>
+      </div>
+      <div class="tuile">
+        <span class="tuile-icone" aria-hidden="true"><app-icone nom="coche" [taille]="18" [epaisseur]="2" /></span>
+        <div class="etiquette">Signalements traités</div>
+        <div class="valeur">{{ s.partSignalementsTraites | nombre }} %</div>
+        <div class="sous">sur {{ s.signalementsTraitesSur | nombre }} cas à suivre · 30 j</div>
+      </div>
+      <div class="tuile">
+        <span class="tuile-icone orange" aria-hidden="true"><app-icone nom="horloge" [taille]="18" [epaisseur]="2" /></span>
+        <div class="etiquette">Délai moyen de prise en charge</div>
+        <div class="valeur">{{ formaterDelai(s.delaiMoyenPriseEnChargeHeures) }}</div>
+        <div class="sous">du signalement à la prise en charge · 30 j</div>
+      </div>
+    </div>
+
+    <div class="graphes">
+      @if (series.erreur(); as erreur) {
+        <div class="pleine">
+          <app-etat type="erreur" [message]="'Les graphiques détaillés sont indisponibles pour le moment. ' + erreur" (reessayer)="series.charger()" />
+        </div>
+      } @else if (!series.donnees()) {
+        <div class="pleine"><app-etat type="chargement" message="Préparation des graphiques…" /></div>
+      } @else {
+        <app-carte-graphe titre="Signalements par semaine" [style.--rang]="0"
+          [sousTitre]="'12 dernières semaines · ' + (totalSemaines() | nombre) + (totalSemaines() > 1 ? ' signalements' : ' signalement') + ', par gravité de la maladie'"
+          [series]="totalSemaines() ? seriesGravite : []" [bascule]="totalSemaines() > 0">
+          @if (totalSemaines()) {
+            <app-colonnes [categories]="categoriesSemaines()" [series]="seriesGravite" [valeurs]="valeursSemaines()"
+              [resume]="resumeSemaines()" entete="Semaine" [unite]="['signalement', 'signalements']" />
+          } @else {
+            <app-etat type="vide" message="Aucun signalement ces 12 dernières semaines." />
+          }
+        </app-carte-graphe>
+
+        <app-carte-graphe titre="Inscriptions par mois" [style.--rang]="1"
+          [sousTitre]="'12 derniers mois · ' + (totalInscriptions() | nombre) + (totalInscriptions() > 1 ? ' comptes créés' : ' compte créé')"
+          [series]="totalInscriptions() ? seriesInscriptions : []" [bascule]="totalInscriptions() > 0">
+          @if (totalInscriptions()) {
+            <app-colonnes [categories]="categoriesMois()" [series]="seriesInscriptions" [valeurs]="valeursMois()"
+              [resume]="resumeInscriptions()" entete="Mois" [maxLibelles]="12" [unite]="['inscription', 'inscriptions']" />
+          } @else {
+            <app-etat type="vide" message="Aucune inscription ces 12 derniers mois." />
+          }
+        </app-carte-graphe>
+
+        <app-carte-graphe titre="Parcours d'un signalement" [style.--rang]="2"
+          sousTitre="30 derniers jours · % : part de l'étape précédente" [bascule]="etapes()[0].nombre > 0">
+          @if (etapes()[0].nombre > 0) {
+            <app-barres [lignes]="lignesEntonnoir()" [series]="seriesEntonnoir" [maximum]="etapes()[0].nombre"
+              [resume]="resumeEntonnoir()" entete="Étape" [unite]="['signalement', 'signalements']" largeurLibelle="112px" />
+          } @else {
+            <app-etat type="vide" message="Aucun signalement ces 30 derniers jours." />
+          }
+        </app-carte-graphe>
+
+        <app-carte-graphe titre="Délai de prise en charge" [style.--rang]="3" [sousTitre]="sousTitreDelais()" [bascule]="totalDelais() > 0">
+          @if (totalDelais()) {
+            <app-colonnes [categories]="categoriesDelais()" [series]="seriesDelais" [valeurs]="valeursDelais()"
+              [couleursCategories]="couleursDelais()" [contigu]="true" [resume]="resumeDelais()" entete="Délai"
+              [unite]="['signalement', 'signalements']" />
+          } @else {
+            <app-etat type="vide" message="Aucune prise en charge ces 90 derniers jours." />
+          }
+        </app-carte-graphe>
+
+        <app-carte-graphe titre="Maladies les plus signalées" [style.--rang]="4" sousTitre="90 derniers jours"
+          [series]="lignesMaladies().length ? seriesMaladies : []" [bascule]="lignesMaladies().length > 0">
+          <p sous-titre class="moteur" [class.attente]="!moteurVerifie()">
+            <app-icone [nom]="moteurVerifie() ? 'coche' : 'horloge'" [taille]="14" [epaisseur]="2.4" />{{ phraseMoteur() }}
+          </p>
+          @if (lignesMaladies().length) {
+            <app-barres [lignes]="lignesMaladies()" [series]="seriesMaladies" [resume]="resumeMaladies()" entete="Maladie"
+              [unite]="['cas', 'cas']" largeurLibelle="minmax(96px, 34%)" />
+          } @else {
+            <app-etat type="vide" message="Aucun signalement ces 90 derniers jours." />
+          }
+        </app-carte-graphe>
+      }
+
+      <app-carte-graphe titre="Répartition par rôle" [style.--rang]="5"
+        [sousTitre]="(totalRoles() | nombre) + (totalRoles() > 1 ? ' comptes' : ' compte')" [bascule]="totalRoles() > 0 || lignesZones().length > 0">
+        @if (totalRoles()) {
+          <app-repartition [parts]="parts()" [resume]="resumeRoles()" entete="Rôle" />
+        } @else {
+          <app-etat type="vide" message="Aucun compte." />
+        }
+        <h3 class="intertitre">Éleveurs par zone</h3>
+        @if (lignesZones().length) {
+          <app-barres [lignes]="lignesZones()" [series]="seriesZones" [resume]="resumeZones()" entete="Zone"
+            [unite]="['éleveur', 'éleveurs']" />
+        } @else {
+          <app-etat type="vide" message="Aucun éleveur inscrit." />
+        }
+      </app-carte-graphe>
+    </div>
+  }
+</div>

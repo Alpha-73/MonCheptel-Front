@@ -1,0 +1,22 @@
+// Deuxième ligne grise sous une valeur (filière, durée, installation).
+small { display: block; margin-top: 2px; font-size: 12px; font-weight: 500; color: var(--gris); white-space: nowrap; }
+.nombre { text-align: right; white-space: nowrap; }
+td.nombre strong { color: var(--titre); }
+th.nombre { padding-right: 22px; }
+td.nombre { padding-right: 22px; }
+
+.type { display: inline-flex; align-items: center; gap: 12px; }
+.type strong { font-weight: 700; color: var(--titre); }
+.type a.etendu { text-decoration: none; color: inherit; }
+.type .badge { margin-left: 8px; }
+// Repère de filière : un trait vertical aux couleurs de la marque.
+.pastille-filiere {
+  flex: none; width: 4px; height: 30px; border-radius: 2px; background: var(--bordure);
+  &[data-filiere='VOLAILLE'] { background: var(--logo-orange); }
+  &[data-filiere='BOVINS'] { background: var(--vert); }
+  &[data-filiere='OVINS'] { background: #7fb3ad; }
+  &[data-filiere='CAPRINS'] { background: #a8500a; }
+}
+// Types retirés : lus mais en retrait.
+.retires tbody tr:not(.ligne-etat) td { color: var(--gris); }
+.retires .pastille-filiere { opacity: .45; }

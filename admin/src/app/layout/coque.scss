@@ -1,0 +1,89 @@
+:host { display: flex; min-height: 100vh; --largeur-menu: 248px; }
+
+// Menu fixe : il reste en place quand la page défile. Le contenu est
+// décalé d'autant (.principal). Sous 1100 px : rail d'icônes de 72 px (A18).
+.barre {
+  view-transition-name: menu;
+  position: fixed; left: 0; top: 0; z-index: 10;
+  width: var(--largeur-menu); height: 100vh; display: flex; flex-direction: column;
+  background: var(--barre); color: var(--barre-texte);
+  overflow-y: auto; overflow-x: hidden;
+}
+
+// Le logo en version claire.
+.marque {
+  position: relative; padding: 24px 22px 18px;
+  img { display: block; position: relative; height: auto; }
+  .logo-ligne { width: 184px; }
+  small {
+    display: block; position: relative; margin: 6px 0 0 48px;
+    font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--barre-texte);
+  }
+}
+
+nav { position: relative; padding: 0 12px 12px; }
+.groupe {
+  margin: 14px 0 4px; padding: 0 14px;
+  font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #8fb1ad;
+}
+ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+nav a {
+  position: relative; display: flex; align-items: center; gap: 12px; height: 40px; padding: 0 12px 0 14px;
+  border-radius: 10px; color: var(--barre-texte); font-size: 14.5px; font-weight: 700; text-decoration: none;
+  transition: background-color .15s, color .15s;
+  &:hover { background: rgba(255, 255, 255, 0.07); color: var(--blanc); }
+  &.actif { background: var(--barre-actif); color: var(--blanc); font-weight: 800; }
+  .libelle { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+// L'indicateur orange glisse d'une entrée à l'autre.
+.indicateur {
+  position: absolute; left: 12px; top: 0; width: 4px; height: 20px; border-radius: 0 3px 3px 0;
+  background: var(--logo-orange); z-index: 1; opacity: 0;
+  transition: transform .35s cubic-bezier(.3, .7, .2, 1), opacity .2s;
+  &.visible { opacity: 1; }
+}
+// Pastilles de compte : cas sans vétérinaire (rouge), conseils à modérer
+// (orange, texte vert sombre), alertes actives (blanc).
+.pastille {
+  flex: none; min-width: 22px; height: 20px; padding: 0 6px; border-radius: 10px;
+  display: inline-grid; place-items: center; font-size: 11.5px; font-weight: 800; font-variant-numeric: tabular-nums;
+  &.rouge { background: var(--rouge); color: var(--blanc); }
+  &.orange { background: var(--logo-orange); color: var(--vert-sombre); }
+  &.clair { background: rgba(255, 255, 255, 0.9); color: var(--vert-sombre); }
+}
+
+.compte {
+  margin: auto 14px 14px; padding-top: 14px; border-top: 1px solid var(--barre-trait);
+  .identite { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--barre-actif);
+    display: grid; place-items: center; color: var(--blanc); font-size: 13px; font-weight: 800;
+  }
+  .textes { min-width: 0; }
+  strong { display: block; font-size: 14px; font-weight: 800; color: var(--blanc); }
+  small {
+    display: block; font-size: 12.5px; color: var(--barre-texte);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .deconnexion {
+    display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 12px; height: 38px; padding: 0 12px;
+    border: 1px solid var(--barre-trait); border-radius: 10px; background: none;
+    color: var(--barre-texte); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
+    &:hover { color: var(--blanc); background: rgba(255, 255, 255, 0.07); }
+  }
+}
+
+.principal { flex: 1; min-width: 0; min-height: 100vh; margin-left: var(--largeur-menu); background: var(--fond); outline: none; }
+
+@media (max-width: 1100px) {
+  :host { --largeur-menu: 72px; }
+  .marque { padding: 20px 14px 10px; small { display: none; } .logo-ligne { width: 40px; height: 30px; object-fit: cover; object-position: left center; } }
+  nav { padding: 0 10px 10px; }
+  .groupe { height: 1px; margin: 10px 8px; padding: 0; overflow: hidden; color: transparent; background: var(--barre-trait); }
+  nav a { justify-content: center; padding: 0; height: 44px; gap: 0; }
+  nav a .libelle { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .pastille { position: absolute; top: 2px; right: 0; min-width: 18px; height: 16px; font-size: 10px; padding: 0 4px; }
+  .indicateur { left: 10px; }
+  .compte { margin: auto 10px 12px; .textes { display: none; } .identite { justify-content: center; } }
+  .compte .deconnexion { justify-content: center; padding: 0; .libelle { display: none; } }
+}

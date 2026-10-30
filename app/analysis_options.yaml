@@ -1,3 +1,0 @@
-# Regles de lint recommandees par l'equipe Flutter. `flutter analyze` les
-# applique : a lancer avant chaque livraison.
-include: package:flutter_lints/flutter.yaml

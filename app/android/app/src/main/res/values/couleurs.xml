@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Haut du degrade du splash (maquette « Splash anime »). -->
-    <color name="fond_demarrage">#F7FBFA</color>
-    <!-- Teinte des notifications (icone, nom de l'application) : vert de
-         marque, comme la console et l'application. -->
-    <color name="notification">#146B66</color>
-</resources>

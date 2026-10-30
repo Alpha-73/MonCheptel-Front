@@ -1,0 +1,89 @@
+<app-en-tete [grand]="true" [surtitre]="surtitre()" [titre]="resume()">
+  <a class="bouton bouton-cle" routerLink="/alertes/nouvelle" aria-label="Déclencher une alerte">
+    <app-icone nom="plus" [taille]="18" [epaisseur]="2.6" />Déclencher une alerte
+  </a>
+  @if (pouls.donnees(); as d) {
+    <div bas class="chiffres">
+      <a class="chiffre" routerLink="/statistiques" aria-label="Signalements cette semaine, voir les statistiques">
+        <span class="valeur">@if (semaine() !== null) { <span [appCompteur]="semaine()!"></span> } @else { — }</span>
+        <span class="libelle">signalements cette semaine</span>
+        <span class="tendance">{{ d.signalements30j | nombre }} sur 30 jours</span>
+        @if (courbe(); as c) {
+          <svg class="courbe" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+            <path class="aire" [attr.d]="c.aire" />
+            <path class="trait" [attr.d]="c.ligne" pathLength="1" />
+          </svg>
+        }
+      </a>
+      <a class="chiffre" routerLink="/signalements" [queryParams]="{ vue: 'A_ATTRIBUER' }" [class.urgent]="d.casSansVeterinaire > 0"
+        aria-label="Cas sans vétérinaire, à attribuer">
+        <span class="valeur"><span [appCompteur]="d.casSansVeterinaire"></span></span>
+        <span class="libelle">{{ d.casSansVeterinaire > 1 ? 'cas graves sans vétérinaire' : 'cas grave sans vétérinaire' }}</span>
+        <span class="tendance">{{ d.casSansVeterinaire ? 'à attribuer à la main' : 'chaque cas a son vétérinaire' }}</span>
+      </a>
+      <a class="chiffre" routerLink="/alertes" aria-label="Alertes actives">
+        <span class="valeur"><span [appCompteur]="d.alertesActives"></span></span>
+        <span class="libelle">{{ d.alertesActives > 1 ? 'alertes actives' : 'alerte active' }}</span>
+        <span class="tendance">{{ d.zonesSousAlerte.length ? d.zonesSousAlerte.join(', ') : d.alertes30j + ' envoyées sur 30 jours' }}</span>
+      </a>
+    </div>
+  }
+</app-en-tete>
+
+<div class="contenu">
+  @if (pouls.erreur() && !pouls.donnees()) {
+    <app-etat type="erreur" [message]="pouls.erreur()" (reessayer)="pouls.charger()" />
+  } @else if (!pouls.donnees()) {
+    <app-etat type="chargement" message="Chargement du tableau de bord…" [lignes]="5" />
+  } @else {
+    @let d = pouls.donnees()!;
+    <div class="grille">
+      <section class="colonne" aria-labelledby="titre-a-traiter">
+        <h2 id="titre-a-traiter">À traiter</h2>
+        @for (t of taches(); track t.texte; let i = $index) {
+          <div class="tache" [class]="'tache ' + t.ton" [style.--rang]="i">
+            <span class="puce" aria-hidden="true">
+              <app-icone [nom]="t.icone" [taille]="18" [epaisseur]="2.1" />
+              @if (t.urgent) { <i class="bat"></i> }
+            </span>
+            <p class="phrase"><b>{{ t.nombre | nombre }}</b> {{ t.texte }}<small>{{ t.detail }}</small></p>
+            <a class="bouton petit" [class.bouton-danger]="t.urgent" [class.bouton-contour]="!t.urgent"
+              [routerLink]="t.lien" [queryParams]="t.params ?? null" [attr.aria-label]="t.action + ' : ' + t.nombre + ' ' + t.texte">
+              {{ t.action }}<app-icone nom="chevronDroite" [taille]="14" [epaisseur]="2.6" />
+            </a>
+          </div>
+        } @empty {
+          <div class="calme">
+            <span class="puce" aria-hidden="true"><app-icone nom="coche" [taille]="20" [epaisseur]="2.4" /></span>
+            <p><strong>Rien en attente.</strong> Aucune alerte, aucun cas ni conseil en suspens.</p>
+          </div>
+        }
+        <p class="mois">
+          Ce mois : <b>+{{ d.inscritsCeMois | nombre }}</b> éleveurs inscrits · <b>{{ d.veterinaires | nombre }}</b> vétérinaires sur
+          {{ pluriel(d.zonesCouvertes, 'zone') }} · <a routerLink="/statistiques">Statistiques</a>
+        </p>
+      </section>
+
+      <section class="colonne direct" aria-labelledby="titre-direct">
+        <h2 id="titre-direct"><span class="en-direct" aria-hidden="true"></span>En direct</h2>
+        @for (g of fil(); track g.titre) {
+          <h3>{{ g.titre }}</h3>
+          <ol>
+            @for (e of g.evenements; track e.cle) {
+              <li>
+                <a [routerLink]="e.lien">
+                  <span [class]="'point ' + e.ton" aria-hidden="true"></span>
+                  <span class="texte"><strong>{{ e.titre }}</strong><small>{{ e.detail }}</small></span>
+                  <span class="meta"><span [class]="'etiquette ' + e.ton">{{ e.etiquette }}</span><time>{{ depuis(e.date) }}</time></span>
+                </a>
+              </li>
+            }
+          </ol>
+        } @empty {
+          <app-etat type="vide" message="Rien de neuf pour le moment." />
+        }
+        <a class="voir-tout" routerLink="/signalements">Tous les signalements</a>
+      </section>
+    </div>
+  }
+</div>

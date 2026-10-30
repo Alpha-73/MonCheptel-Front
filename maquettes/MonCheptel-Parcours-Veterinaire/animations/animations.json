@@ -1,0 +1,28 @@
+{
+ "navigation": {
+  "type": "SMART_ANIMATE",
+  "duree": 0.3,
+  "courbe": "EASE_OUT"
+ },
+ "ouverturePopup": {
+  "type": "DISSOLVE",
+  "duree": 0.2,
+  "courbe": "EASE_OUT"
+ },
+ "popups": {
+  "position": "CENTER",
+  "fond": {
+   "couleur": "#000000",
+   "opacite": 0.35
+  },
+  "interactionFond": "CLOSE_ON_CLICK_OUTSIDE",
+  "ecrans": [
+   "Veto - Demande detail - POPUP Cas traite",
+   "Veto - Conseil rediger - POPUP Publie",
+   "Veto - Conseil modifier - POPUP Supprimer",
+   "Veto - Competences - POPUP Enregistre"
+  ]
+ },
+ "minuteries": [],
+ "survols": []
+}

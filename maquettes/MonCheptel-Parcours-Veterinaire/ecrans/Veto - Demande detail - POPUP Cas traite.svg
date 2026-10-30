@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="354" height="337" viewBox="0 0 354 337" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>Veto - Demande detail - POPUP Cas traite</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="354" height="337"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="zVetoDemandedetailPOPUPCa_0"><rect x="0" y="0" width="354" height="337"/></clipPath></defs>
+<g clip-path="url(#zVetoDemandedetailPOPUPCa_0)">
+<rect x="0.0" y="0.0" width="354.0" height="337.0" rx="8.0" fill="#ffffff"/>
+<rect x="149.0" y="24.0" width="56.0" height="56.0" rx="28.0" fill="#e4efee"/>
+<g transform="translate(163.0,38.0)"><svg fill="none" height="28" stroke="#146B66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="28"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></g>
+<text x="60.9" y="111.1" font-size="20.0" fill="#000000" font-weight="700">Cas marqué comme traité</text>
+<text x="50.0" y="143.1" font-size="16.0" fill="#767674" font-weight="500">Mamadou Traoré a été retiré de vos</text>
+<text x="28.8" y="164.1" font-size="16.0" fill="#767674" font-weight="500">demandes en attente. L'éleveur reçoit une</text>
+<text x="104.5" y="185.1" font-size="16.0" fill="#767674" font-weight="500">notification de suivi.</text>
+<rect x="24.0" y="209.0" width="306.0" height="48.0" rx="8.0" fill="#146b66"/>
+<text x="74.4" y="239.6" font-size="16.0" fill="#ffffff" font-weight="700">Voir les demandes restantes</text>
+<rect x="24.0" y="265.0" width="306.0" height="48.0" rx="8.0" fill="none" stroke="#146b66" stroke-width="1.0"/>
+<text x="115.9" y="295.6" font-size="16.0" fill="#146b66" font-weight="700">Retour à l'accueil</text>
+</g>
+</g>
+</svg>

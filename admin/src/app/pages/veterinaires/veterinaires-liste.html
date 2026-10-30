@@ -1,0 +1,57 @@
+<app-en-tete titre="Vétérinaires" sousTitre="Comptes créés par l'administration">
+  <a class="bouton bouton-primaire" routerLink="/veterinaires/nouveau" aria-label="Créer un compte vétérinaire">
+    <app-icone nom="plus" [taille]="18" [epaisseur]="2.4" />Créer un compte
+  </a>
+</app-en-tete>
+
+<div class="contenu">
+  <div class="barre-outils">
+    <app-recherche placeholder="Rechercher un vétérinaire…" [(valeur)]="recherche" />
+    <app-filtre libelle="Zone" [options]="optionsZone()" [(valeur)]="zoneId" libelleTous="Toutes" />
+    <app-filtre libelle="Filière" [options]="optionsFiliere" [(valeur)]="filiere" />
+  </div>
+
+  @if (liste.erreur(); as erreur) {
+    <app-etat type="erreur" [message]="erreur" (reessayer)="liste.charger()" />
+  } @else if (!liste.donnees()) {
+    <div class="carte"><app-etat type="chargement" message="Chargement des vétérinaires…" /></div>
+  } @else {
+    <table class="tableau" [attr.aria-busy]="liste.enCours()">
+      <caption class="visuellement-cache">Vétérinaires</caption>
+      <thead>
+        <tr><th scope="col">Nom</th><th scope="col">Zone</th><th scope="col">Filières</th><th scope="col">Compétences</th><th scope="col">Disponibilité</th><th scope="col">Compte</th><th><span class="visuellement-cache">Action</span></th></tr>
+      </thead>
+      <tbody>
+        @for (v of affiches(); track v.id) {
+          <tr class="lien-ligne">
+            <td>
+              <a class="etendu nom-avatar" [routerLink]="['/veterinaires', v.id]">
+                <span class="avatar-liste" aria-hidden="true">{{ v.nom | initiales }}</span>{{ nomVeterinaire(v) }}
+              </a>
+            </td>
+            <td>{{ v.zoneIntervention?.nom ?? v.zone?.nom ?? '—' }}</td>
+            <td>{{ v.filieres | filieres }}</td>
+            <td>{{ v.nombreCompetences ? pluriel(v.nombreCompetences, 'compétence') : 'Aucune' }}</td>
+            <td>
+              <span class="dispo" [class.oui]="v.disponible">{{ v.disponible ? 'Disponible' : 'Indisponible' }}</span>
+            </td>
+            <td>
+              @if (v.actif) { <span class="badge vert">Actif</span> } @else { <span class="badge gris">Désactivé</span> }
+              @if (v.verrouille) { <span class="badge orange">Verrouillé</span> }
+            </td>
+            <td class="fin">
+              <a class="icone-action" [routerLink]="['/veterinaires', v.id]" [attr.aria-label]="'Modifier ' + nomVeterinaire(v)" tabindex="-1">
+                <app-icone nom="crayon" [taille]="18" [epaisseur]="2" />
+              </a>
+            </td>
+          </tr>
+        } @empty {
+          <tr class="ligne-etat"><td colspan="7">
+            <app-etat type="vide" [message]="liste.donnees()!.length ? 'Aucun vétérinaire ne correspond à ces critères.' : 'Aucun compte vétérinaire pour le moment.'" />
+          </td></tr>
+        }
+      </tbody>
+    </table>
+    <app-pagination [page]="page()" [taille]="taillePage" [total]="filtres().length" unite="vétérinaire" (pageChange)="page.set($event)" />
+  }
+</div>

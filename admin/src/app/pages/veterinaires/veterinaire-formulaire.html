@@ -1,0 +1,127 @@
+@if (modification()) {
+  <app-en-tete titre="Modifier un vétérinaire" sousTitre="Coordonnées, zone et compétences" />
+} @else {
+  <app-en-tete titre="Nouveau compte vétérinaire" sousTitre="Créé par l'administration" />
+}
+
+<div class="contenu">
+  <app-retour lien="/veterinaires" texte="Retour à la liste" />
+
+  @if (erreurChargement(); as e) {
+    <app-etat type="erreur" [message]="e" (reessayer)="charger()" />
+  } @else if (!pret()) {
+    <app-etat type="chargement" />
+  } @else {
+    <form class="carte carte-formulaire" [formGroup]="formulaire" (ngSubmit)="enregistrer()" novalidate>
+      <div class="grille-champs">
+        <div class="champ" [class.invalide]="formulaire.controls.nom.touched && formulaire.controls.nom.invalid">
+          <label for="nom">Nom complet</label>
+          <input id="nom" formControlName="nom" appChamp placeholder="Souleymane Koné" />
+        </div>
+        <div class="champ" [class.invalide]="formulaire.controls.telephone.touched && formulaire.controls.telephone.invalid">
+          <label for="telephone">Téléphone</label>
+          <input id="telephone" formControlName="telephone" appChamp inputmode="tel" placeholder="+223 00 00 00 00" />
+        </div>
+        <div class="champ" [class.invalide]="formulaire.controls.email.touched && formulaire.controls.email.invalid">
+          <label for="email">Adresse e-mail</label>
+          <input id="email" type="email" formControlName="email" appChamp placeholder="prenom.nom@moncheptel.ml" />
+        </div>
+        <div class="champ">
+          <label for="titre">Titre</label>
+          <input id="titre" formControlName="titre" appChamp placeholder="Dr" />
+        </div>
+        <div class="champ">
+          <label for="specialite">Spécialité</label>
+          <input id="specialite" formControlName="specialite" appChamp placeholder="Aviculture, petits ruminants…" />
+        </div>
+        <div class="champ" [class.invalide]="formulaire.controls.zoneInterventionId.touched && formulaire.controls.zoneInterventionId.invalid">
+          <label for="zone">Zone d'intervention</label>
+          <select id="zone" formControlName="zoneInterventionId" appChamp>
+            <option [ngValue]="null" disabled>Choisir une zone</option>
+            @for (z of zones(); track z.id) {
+              <option [ngValue]="z.id">{{ z.nom }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <hr class="separateur" />
+      <h2 class="bloc-titre" id="titre-maladies">Maladies traitées</h2>
+      <p class="bloc-aide">
+        @if (modification()) {
+          Prises en compte aussitôt par l'orientation des cas.
+        } @else {
+          Les cas de ces maladies lui sont orientés en priorité.
+        }
+      </p>
+      <div class="cases trois" role="group" aria-labelledby="titre-maladies">
+        @for (m of maladies(); track m.id) {
+          <label class="case" [class.cochee]="coches().has(m.id)">
+            <input type="checkbox" [checked]="coches().has(m.id)" (change)="basculer(m.id)" />
+            <span class="carre">@if (coches().has(m.id)) {<app-icone nom="coche" [taille]="15" [epaisseur]="3" />}</span>
+            {{ m.nom }}
+          </label>
+        } @empty {
+          <app-etat type="vide" message="Le catalogue des maladies est vide." />
+        }
+      </div>
+
+      @if (!modification()) {
+        <div class="encadre">
+          Un mot de passe provisoire part par e-mail ; le vétérinaire le change à sa première connexion.
+        </div>
+      }
+
+      @if (erreur(); as e) { <div class="message-erreur" id="erreur-formulaire" role="alert">{{ e }}</div> }
+      @if (information(); as i) { <div class="message-info" role="status">{{ i }}</div> }
+      <div class="actions-formulaire">
+        <button type="submit" class="bouton bouton-primaire" [disabled]="envoi()">
+          {{ modification() ? 'Enregistrer' : 'Créer le compte' }}
+        </button>
+        <button type="button" class="bouton bouton-contour" (click)="annuler()">Annuler</button>
+        @if (modification()) {
+          @if (veterinaire()?.actif) {
+            <button type="button" class="bouton bouton-contour-danger" (click)="ouvrir(popup)">Désactiver ce compte</button>
+          } @else {
+            <button type="button" class="bouton bouton-contour" [disabled]="envoi()" (click)="changerActivation(true)">Réactiver ce compte</button>
+          }
+          <button type="button" class="bouton bouton-contour" (click)="ouvrir(reinit)">Réinitialiser le mot de passe</button>
+          <button type="button" class="lien-danger" (click)="ouvrir(suppression)">Supprimer définitivement</button>
+        }
+      </div>
+    </form>
+  }
+
+  @if (popup()) {
+    <app-modale titre="Désactiver ce vétérinaire ?" ton="danger" [fermable]="!envoi()" (fermer)="popup.set(false)">
+      <p>{{ nomAffiche() }} quitte l'annuaire et ne peut plus se connecter. Ses cas ouverts repartent vers un confrère. Le compte se réactive.</p>
+      @if (erreur(); as e) { <div class="message-erreur" role="alert">{{ e }}</div> }
+      <ng-container actions>
+        <button type="button" class="bouton bouton-contour" (click)="popup.set(false)">Annuler</button>
+        <button type="button" class="bouton bouton-danger" [disabled]="envoi()" (click)="changerActivation(false)">Désactiver</button>
+      </ng-container>
+    </app-modale>
+  }
+
+  @if (reinit()) {
+    <app-modale titre="Réinitialiser le mot de passe ?" [fermable]="!envoi()" (fermer)="reinit.set(false)">
+      <p>Un mot de passe provisoire part à <strong>{{ veterinaire()?.email }}</strong>. {{ nomAffiche() }} le changera à sa prochaine connexion ; ses sessions sont fermées.</p>
+      @if (erreur(); as e) { <div class="message-erreur" role="alert">{{ e }}</div> }
+      <ng-container actions>
+        <button type="button" class="bouton bouton-contour" (click)="reinit.set(false)">Annuler</button>
+        <button type="button" class="bouton bouton-primaire" [disabled]="envoi()" (click)="reinitialiser()">Envoyer</button>
+      </ng-container>
+    </app-modale>
+  }
+
+  @if (suppression()) {
+    <app-modale titre="Supprimer ce vétérinaire ?" ton="danger" [fermable]="!envoi()" (fermer)="suppression.set(false)">
+      <p>{{ nomAffiche() }} sera supprimé <strong>définitivement</strong>. Ses conseils publiés restent en ligne, au nom de l'administration. Ses brouillons et conseils en modération sont supprimés. Ses cas repartent vers un autre vétérinaire. Action irréversible.</p>
+      @if (erreur(); as e) { <div class="message-erreur" role="alert">{{ e }}</div> }
+      <ng-container actions>
+        <button type="button" class="bouton bouton-contour" (click)="suppression.set(false)">Annuler</button>
+        <button type="button" class="bouton bouton-danger" [disabled]="envoi()" (click)="supprimer()">Supprimer</button>
+      </ng-container>
+    </app-modale>
+  }
+</div>

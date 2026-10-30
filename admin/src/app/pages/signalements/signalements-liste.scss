@@ -1,0 +1,43 @@
+
+td small { display: block; margin-top: 2px; font-size: 12px; color: var(--gris); }
+.eleveur { color: var(--titre); font-weight: 700; text-decoration: none; &:hover { color: var(--vert); text-decoration: underline; } }
+.diag { font-weight: 500; s { margin-right: 6px; color: var(--gris); font-weight: 400; } }
+.personne { color: var(--rouge); font-weight: 600; }
+.discret { color: var(--gris); font-size: 13px; }
+.nowrap { white-space: nowrap; }
+.actions { text-align: right; }
+
+// Un cas grave que personne ne suit : un filet rouge à gauche de la ligne.
+tr.a-attribuer td:first-child { box-shadow: inset 3px 0 0 var(--rouge); }
+
+.statut {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; white-space: nowrap;
+  &::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--gris); }
+  &[data-statut='ORIENTE']::before { background: var(--logo-orange); }
+  &[data-statut='EN_COURS']::before { background: var(--vert); animation: pulsation 1.8s ease-in-out infinite; }
+  &[data-statut='TRAITE']::before { background: var(--vert); }
+}
+@keyframes pulsation { 50% { box-shadow: 0 0 0 4px rgba(20, 107, 102, .18); } }
+@media (prefers-reduced-motion: reduce) { .statut::before { animation: none !important; } }
+
+.rappel { margin: 0 0 14px; font-size: 13px; color: var(--gris); }
+.candidats { display: flex; flex-direction: column; gap: 8px; max-height: 236px; overflow-y: auto; padding-right: 2px; }
+.candidat {
+  display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px;
+  border: 1px solid var(--bordure); border-radius: var(--rayon-petit); cursor: pointer;
+  transition: border-color .15s, background .15s;
+  input { margin-top: 3px; accent-color: var(--vert); }
+  strong { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  small { display: block; margin-top: 2px; font-size: 12px; color: var(--gris); }
+  em { font-style: normal; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 99px; background: var(--sable); color: var(--gris-fort); }
+  em.absent { background: var(--orange-pale); color: var(--orange-texte); }
+  em.conseille { background: var(--vert-pale); color: var(--vert); }
+  &:hover:not(.desactive) { border-color: var(--vert); }
+  &.choisi { border-color: var(--vert); background: var(--vert-pale); }
+  &.desactive { opacity: .55; cursor: default; }
+  &.indisponible:not(.choisi) { background: var(--fond); strong { color: var(--gris-fort); } }
+}
+.note { margin: 12px 0 0; font-size: 12.5px; color: var(--gris); }
+
+/* V14 : dernier refus d'un cas par un vétérinaire. */
+.refus { color: var(--orange-texte); }

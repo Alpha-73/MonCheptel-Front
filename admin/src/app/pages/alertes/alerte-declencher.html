@@ -1,0 +1,98 @@
+<app-en-tete titre="Déclencher une alerte" sousTitre="Seuls les éleveurs de la zone, dans les filières de la maladie, sont prévenus" />
+
+<div class="contenu">
+  <app-retour lien="/alertes" texte="Retour aux alertes" />
+
+  @if (maladies.erreur(); as e) {
+    <app-etat type="erreur" [message]="e" (reessayer)="maladies.charger()" />
+  } @else if (!maladies.donnees()) {
+    <app-etat type="chargement" />
+  } @else {
+    <div class="disposition">
+      <form class="carte carte-formulaire" [formGroup]="formulaire" (ngSubmit)="declencher()" novalidate>
+        <div class="grille-champs alerte">
+          <div class="champ" [class.invalide]="formulaire.controls.maladieId.touched && formulaire.controls.maladieId.invalid">
+            <label for="maladie">Maladie</label>
+            <select id="maladie" formControlName="maladieId" appChamp>
+              <option [ngValue]="null" disabled>Choisir une maladie</option>
+              @for (m of maladies.donnees(); track m.id) { <option [ngValue]="m.id">{{ m.nom }}</option> }
+            </select>
+          </div>
+          <div class="champ">
+            <label for="filiere">Filière</label>
+            <select id="filiere" formControlName="filiere">
+              <option [ngValue]="null">{{ libelleToutes() }}</option>
+              @for (f of filieresMaladie(); track f) { <option [ngValue]="f">{{ libelleFiliere(f) }}</option> }
+            </select>
+          </div>
+          <div class="champ" [class.invalide]="formulaire.controls.zoneId.touched && formulaire.controls.zoneId.invalid">
+            <label for="zone">Zone concernée</label>
+            <select id="zone" formControlName="zoneId" appChamp>
+              <option [ngValue]="null" disabled>Choisir une zone</option>
+              @for (z of zones(); track z.id) { <option [ngValue]="z.id">{{ z.nom }}</option> }
+            </select>
+          </div>
+          <div class="champ">
+            <label for="dateFin">Fin de l'alerte <span class="facultatif">facultatif</span></label>
+            <input id="dateFin" type="date" formControlName="dateFin" [min]="aujourdhui" />
+            <small class="aide-champ">Dernier jour. Sans date, elle dure jusqu'à sa clôture.</small>
+          </div>
+          <div class="champ large" [class.invalide]="formulaire.controls.message.touched && formulaire.controls.message.invalid">
+            <label for="message">Message envoyé aux éleveurs</label>
+            <textarea id="message" formControlName="message" appChamp maxlength="500"></textarea>
+          </div>
+        </div>
+        @if (erreur(); as e) { <div class="message-erreur" id="erreur-formulaire" role="alert">{{ e }}</div> }
+        <div class="actions-formulaire">
+          <button type="submit" class="bouton bouton-danger" [disabled]="envoi()">Déclencher l'alerte</button>
+          <button type="button" class="bouton bouton-contour" (click)="annuler()">Annuler</button>
+        </div>
+      </form>
+
+      <aside class="carte avant">
+        <h2>Avant de confirmer</h2>
+        <div class="etiquette">Éleveurs ciblés</div>
+        @switch (apercu().etat) {
+          @case ('attente') {
+            <div class="valeur">—</div>
+            <div class="sous">Choisissez une maladie et une zone.</div>
+          }
+          @case ('chargement') {
+            <div class="valeur">…</div>
+            <div class="sous">{{ cible() }}</div>
+          }
+          @case ('ok') {
+            @let a = $any(apercu()).valeur;
+            <div class="valeur">{{ a.eleveursCibles | nombre }}</div>
+            <div class="sous">{{ cible() }}</div>
+            <div class="secondaire">{{ pluriel(a.signalementsRecents, 'signalement récent', 'signalements récents') }} de cette maladie dans la zone ces 14 derniers jours</div>
+          }
+          @case ('erreur') {
+            <app-etat type="erreur" [message]="$any(apercu()).message" [reessayable]="false" />
+          }
+        }
+        <div class="encadre">La notification part aussitôt, sans frais pour les éleveurs.</div>
+      </aside>
+    </div>
+  }
+
+  @if (confirmation()) {
+    <app-modale [fermable]="!envoi()" titre="Déclencher l'alerte ?" ton="danger" (fermer)="confirmation.set(false)">
+      <p>
+        @if (cibles() !== null) {
+          <strong>{{ pluriel(cibles()!, 'éleveur', 'éleveurs') }}</strong> {{ cibles()! > 1 ? 'recevront' : 'recevra' }} ce message tout de suite.
+        } @else {
+          Tous les éleveurs ciblés recevront ce message tout de suite.
+        }
+        Une notification envoyée ne peut pas être rappelée.
+        @if (formulaire.controls.dateFin.value; as fin) {
+          L'alerte se clôturera d'elle-même après le {{ fin | dateLongue }}.
+        }
+      </p>
+      <ng-container actions>
+        <button type="button" class="bouton bouton-contour" (click)="confirmation.set(false)">Annuler</button>
+        <button type="button" class="bouton bouton-danger" [disabled]="envoi()" (click)="envoyer()">Déclencher l'alerte</button>
+      </ng-container>
+    </app-modale>
+  }
+</div>

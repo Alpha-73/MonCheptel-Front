@@ -1,0 +1,71 @@
+<app-en-tete titre="Alertes sanitaires" [sousTitre]="sousTitre()">
+  <a class="bouton bouton-cle" routerLink="/alertes/nouvelle" aria-label="Déclencher une alerte">
+    <app-icone nom="diffusion" [taille]="18" [epaisseur]="2.2" />Déclencher une alerte
+  </a>
+</app-en-tete>
+
+<div class="contenu">
+  <div class="barre-outils">
+    <app-onglets libelle="Statut des alertes" ident="statut-alertes" [options]="onglets()" [(valeur)]="vue" />
+    <p class="rappel-envoi">Une alerte notifie aussitôt les éleveurs de la zone, dans les filières de la maladie.</p>
+  </div>
+
+  <div role="tabpanel" id="statut-alertes-panneau" [attr.aria-labelledby]="'statut-alertes-onglet-' + vue()">
+  @if (liste.erreur(); as erreur) {
+    <app-etat type="erreur" [message]="erreur" (reessayer)="liste.charger()" />
+  } @else if (!liste.donnees()) {
+    <app-etat type="chargement" [lignes]="4" message="Chargement des alertes…" />
+  } @else {
+    <table class="tableau">
+      <caption class="visuellement-cache">Alertes {{ vue() === 'ACTIVES' ? 'actives' : 'terminées' }}</caption>
+      <thead>
+        <tr><th scope="col">Maladie</th><th scope="col">Zone</th><th scope="col">Filière</th><th scope="col">Portée</th><th scope="col">Date</th><th scope="col">Statut</th><th scope="col"><span class="visuellement-cache">Actions</span></th></tr>
+      </thead>
+      <tbody>
+        @for (a of triees(); track a.id) {
+          <tr class="lien-ligne">
+            <td><a class="etendu nom" [routerLink]="['/alertes', a.id]">{{ a.maladie }}</a></td>
+            <td>{{ a.zone }}</td>
+            <td>{{ a.filiere ? (a.filiere | libelle: 'filiere') : 'Ses filières' }}</td>
+            <td class="nowrap">{{ pluriel(a.portee, 'éleveur') }}</td>
+            <td class="nowrap">
+              {{ a.dateDeclenchement | dateCourte }}
+              @if (a.statut === 'ACTIVE' && a.dateFin) {
+                <small class="fin">jusqu'au {{ a.dateFin | dateCourte }}</small>
+              } @else if (a.dateCloture) {
+                <small class="fin">close le {{ a.dateCloture | dateCourte }}</small>
+              }
+            </td>
+            <td><span [class]="'badge ' + couleurStatut(a.statut)">{{ a.statut | libelle: 'statutAlerte' }}</span></td>
+            <td class="actions">
+              @if (a.statut === 'ACTIVE') {
+                <span class="groupe au-dessus">
+                  <button type="button" class="lien-action neutre" [attr.aria-label]="'Clôturer l\'alerte ' + a.maladie + ', ' + a.zone" (click)="demanderCloture(a)">Clôturer</button>
+                  <a class="icone-action" [routerLink]="['/alertes', a.id]" [attr.aria-label]="'Modifier l\'alerte ' + a.maladie + ', ' + a.zone" tabindex="-1">
+                    <app-icone nom="crayon" [taille]="18" [epaisseur]="2" />
+                  </a>
+                </span>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr class="ligne-etat"><td colspan="7">
+            <app-etat type="vide" [message]="vue() === 'ACTIVES' ? 'Aucune alerte en cours.' : 'Aucune alerte terminée.'" />
+          </td></tr>
+        }
+      </tbody>
+    </table>
+  }
+  </div>
+
+  @if (aCloturer(); as a) {
+    <app-modale [fermable]="!envoi()" titre="Clôturer cette alerte ?" (fermer)="aCloturer.set(null)">
+      <p>« {{ a.maladie }} — {{ a.zone }} » passe en terminée et quitte le tableau de bord {{ desEleveursConcernes(a.portee) }}.</p>
+      @if (erreurAction(); as e) { <div class="message-erreur" role="alert">{{ e }}</div> }
+      <ng-container actions>
+        <button type="button" class="bouton bouton-contour" (click)="aCloturer.set(null)">Annuler</button>
+        <button type="button" class="bouton bouton-primaire" [disabled]="envoi()" (click)="cloturer(a)">Clôturer l'alerte</button>
+      </ng-container>
+    </app-modale>
+  }
+</div>

@@ -1,0 +1,31 @@
+{
+ "navigation": {
+  "type": "SMART_ANIMATE",
+  "duree": 0.3,
+  "courbe": "EASE_OUT"
+ },
+ "ouverturePopup": {
+  "type": "DISSOLVE",
+  "duree": 0.2,
+  "courbe": "EASE_OUT"
+ },
+ "popups": {
+  "position": "CENTER",
+  "fond": {
+   "couleur": "#000000",
+   "opacite": 0.35
+  },
+  "interactionFond": "CLOSE_ON_CLICK_OUTSIDE",
+  "ecrans": [
+   "Admin - Utilisateur fiche - POPUP Desactiver",
+   "Admin - Veterinaire modifier - POPUP Desactiver",
+   "Admin - Maladie modifier - POPUP Supprimer",
+   "Admin - Conseils moderation - POPUP Valider",
+   "Admin - Conseils moderation - POPUP Publie",
+   "Admin - Conseils moderation - POPUP Retirer",
+   "Admin - Alertes liste - POPUP Cloturer"
+  ]
+ },
+ "minuteries": [],
+ "survols": []
+}

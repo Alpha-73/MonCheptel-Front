@@ -1,0 +1,77 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- MonCheptel : acces au back. Sans cette ligne, aucune requete ne part
+         dans un build de publication (le build de debogage l'a d'office). -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- MonCheptel : Android 13 et plus demande l'accord de l'utilisateur
+         avant d'afficher une notification (pousse/pousse.dart). -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <!-- MonCheptel : la version de publication ne parle qu'en HTTPS. Le
+         http:// du back local n'est autorise que dans les builds debug et
+         profile (voir src/debug et src/profile/AndroidManifest.xml). -->
+    <application
+        android:label="MonCheptel"
+        android:name="${applicationName}"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher">
+        <!-- MonCheptel : apparence des notifications poussees. Icone en
+             silhouette (une icone en couleur devient un carre blanc),
+             teinte de marque, et categorie par defaut si le serveur n'en
+             precise pas (les categories sont creees dans MainActivity). -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/notification" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="moncheptel_infos" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+        <!-- MonCheptel : boutons « Appeler ». Depuis Android 11, sans cette
+             declaration, l'application telephone peut rester invisible. -->
+        <intent>
+            <action android:name="android.intent.action.DIAL"/>
+            <data android:scheme="tel"/>
+        </intent>
+    </queries>
+</manifest>

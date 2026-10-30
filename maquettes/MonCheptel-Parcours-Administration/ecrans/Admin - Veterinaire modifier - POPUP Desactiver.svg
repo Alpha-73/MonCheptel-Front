@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="338" viewBox="0 0 600 338" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>Admin - Veterinaire modifier - POPUP Desactiver</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="600" height="338"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="zAdminVeterinairemodifier_0"><rect x="0" y="0" width="600" height="338"/></clipPath></defs>
+<g clip-path="url(#zAdminVeterinairemodifier_0)">
+<rect x="0.0" y="0.0" width="600.0" height="338.0" rx="8.0" fill="#ffffff"/>
+<rect x="268.0" y="36.0" width="64.0" height="64.0" rx="32.0" fill="#fae8e8"/>
+<g transform="translate(284.0,52.0)"><svg fill="none" height="32" stroke="#C43D3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="32"><path d="M12 3.6 22 20.4H2z"></path><path d="M12 9.8v4.6"></path><path d="M12 17.4v.4"></path></svg></g>
+<text x="145.2" y="137.4" font-size="26.0" fill="#000000" font-weight="700">Désactiver ce vétérinaire ?</text>
+<text x="42.8" y="175.1" font-size="20.0" fill="#767674" font-weight="500">Dr Aïssata Traoré disparaîtra de l'annuaire. Ses 3 éleveurs</text>
+<text x="38.1" y="201.1" font-size="20.0" fill="#767674" font-weight="500">orientés seront réaffectés à un vétérinaire compétent de la</text>
+<text x="275.6" y="227.1" font-size="20.0" fill="#767674" font-weight="500">zone.</text>
+<rect x="94.0" y="254.0" width="200.0" height="48.0" rx="8.0" fill="#c43d3d"/>
+<text x="146.2" y="286.1" font-size="20.0" fill="#ffffff" font-weight="700">Désactiver</text>
+<rect x="306.0" y="254.0" width="200.0" height="48.0" rx="8.0" fill="none" stroke="#146b66" stroke-width="1.0"/>
+<text x="371.0" y="286.1" font-size="20.0" fill="#146b66" font-weight="700">Annuler</text>
+</g>
+</g>
+</svg>

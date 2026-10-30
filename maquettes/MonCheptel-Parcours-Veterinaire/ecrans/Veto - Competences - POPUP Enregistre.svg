@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="354" height="260" viewBox="0 0 354 260" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>Veto - Competences - POPUP Enregistre</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="354" height="260"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="zVetoCompetencesPOPUPEnre_0"><rect x="0" y="0" width="354" height="260"/></clipPath></defs>
+<g clip-path="url(#zVetoCompetencesPOPUPEnre_0)">
+<rect x="0.0" y="0.0" width="354.0" height="260.0" rx="8.0" fill="#ffffff"/>
+<rect x="149.0" y="24.0" width="56.0" height="56.0" rx="28.0" fill="#e4efee"/>
+<g transform="translate(163.0,38.0)"><svg fill="none" height="28" stroke="#146B66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="28"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></g>
+<text x="57.6" y="111.1" font-size="20.0" fill="#000000" font-weight="700">Compétences mises à jour</text>
+<text x="56.5" y="143.1" font-size="16.0" fill="#767674" font-weight="500">Les éleveurs signalant une de vos</text>
+<text x="28.7" y="164.1" font-size="16.0" fill="#767674" font-weight="500">maladies vous seront orientés en priorité.</text>
+<rect x="24.0" y="188.0" width="306.0" height="48.0" rx="8.0" fill="#146b66"/>
+<text x="144.0" y="218.6" font-size="16.0" fill="#ffffff" font-weight="700">Terminer</text>
+</g>
+</g>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>19-modifier-une-maladie</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="1440" height="900"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="z19modifierunemaladie_0"><rect x="0" y="0" width="1440" height="900"/></clipPath><clipPath id="z19modifierunemaladie_1"><rect x="280" y="0" width="1160" height="900"/></clipPath><clipPath id="z19modifierunemaladie_2"><rect x="280" y="96" width="1160" height="804"/></clipPath><clipPath id="z19modifierunemaladie_3"><rect x="337" y="675" width="830" height="80"/></clipPath></defs>
+<g clip-path="url(#z19modifierunemaladie_0)">
+<rect x="0.0" y="0.0" width="1440.0" height="900.0" fill="#f4f4f2"/>
+<rect x="0.0" y="0.0" width="280.0" height="900.0" fill="#0e3f3c"/>
+<rect x="24.0" y="28.0" width="44.0" height="44.0" rx="8.0" fill="#ffffff"/>
+<g transform="translate(34.0,38.0)"><svg fill="none" height="24" stroke="#0E3F3C" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="24"><path d="M4 18V8l8-4 8 4v10"></path><path d="M9 18v-5h6v5"></path></svg></g>
+<text x="80.0" y="47.4" font-size="22.0" fill="#ffffff" font-weight="700">MonCheptel</text>
+<text x="80.0" y="71.5" font-size="17.0" fill="#b7cdcb" font-weight="500">Administration</text>
+<g transform="translate(32.0,118.0)"><svg fill="none" height="24" stroke="#B7CDCB" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M3 11.2 L12 3.5 L21 11.2"></path><path d="M5.5 9.6V20h13V9.6"></path></svg></g>
+<text x="70.0" y="138.1" font-size="20.0" fill="#b7cdcb" font-weight="500">Tableau de bord</text>
+<g transform="translate(32.0,178.0)"><svg fill="none" height="24" stroke="#B7CDCB" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><circle cx="12" cy="8" r="3.6"></circle><path d="M4.8 20.4c0-3.6 3.2-5.6 7.2-5.6s7.2 2 7.2 5.6"></path></svg></g>
+<text x="70.0" y="198.1" font-size="20.0" fill="#b7cdcb" font-weight="500">Utilisateurs</text>
+<g transform="translate(32.0,238.0)"><svg fill="none" height="24" stroke="#B7CDCB" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M12 3.2 20 6.4v5.6c0 4.4-3.3 7.6-8 8.8-4.7-1.2-8-4.4-8-8.8V6.4z"></path><path d="M12 9.2v5.6M9.2 12h5.6"></path></svg></g>
+<text x="70.0" y="258.1" font-size="20.0" fill="#b7cdcb" font-weight="500">Vétérinaires</text>
+<rect x="16.0" y="284.0" width="248.0" height="52.0" rx="8.0" fill="#146b66"/>
+<g transform="translate(32.0,298.0)"><svg fill="none" height="24" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" viewBox="0 0 24 24" width="24"><path d="M12 3.6 22 20.4H2z"></path><path d="M12 9.8v4.6"></path><path d="M12 17.4v.4"></path></svg></g>
+<text x="70.0" y="318.1" font-size="20.0" fill="#ffffff" font-weight="700">Maladies</text>
+<g transform="translate(32.0,358.0)"><svg fill="none" height="24" stroke="#B7CDCB" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M6 3.4h9l3.6 3.6v13.6H6z"></path><path d="M9.4 11.6h5.2M9.4 15.2h3.6"></path></svg></g>
+<text x="70.0" y="378.1" font-size="20.0" fill="#b7cdcb" font-weight="500">Conseils</text>
+<g transform="translate(32.0,418.0)"><svg fill="none" height="24" stroke="#B7CDCB" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M6.4 9.6a5.6 5.6 0 0 1 11.2 0v4.8l1.8 2.8H4.6l1.8-2.8z"></path><path d="M10 20h4"></path></svg></g>
+<text x="70.0" y="438.1" font-size="20.0" fill="#b7cdcb" font-weight="500">Alertes</text>
+<g transform="translate(32.0,478.0)"><svg fill="none" height="24" stroke="#B7CDCB" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24"><path d="M4 19.6 10 12l4 3.6 6-8"></path><path d="M20 7.6h-4.4M20 7.6v4.4"></path></svg></g>
+<text x="70.0" y="498.1" font-size="20.0" fill="#b7cdcb" font-weight="500">Statistiques</text>
+<rect x="16.0" y="810.0" width="248.0" height="66.0" fill="none" stroke="#1d5350" stroke-width="1.0"/>
+<rect x="16.0" y="830.5" width="42.0" height="42.0" rx="21.0" fill="#146b66"/>
+<text x="25.8" y="858.5" font-size="17.0" fill="#ffffff" font-weight="700">AD</text>
+<text x="70.0" y="848.1" font-size="20.0" fill="#ffffff" font-weight="700">Administrateur</text>
+<text x="70.0" y="871.5" font-size="17.0" fill="#b7cdcb" font-weight="500">admin@moncheptel.ml</text>
+</g>
+<g clip-path="url(#z19modifierunemaladie_1)">
+<rect x="280.0" y="0.0" width="1160.0" height="96.0" fill="#ffffff"/>
+<text x="312.0" y="46.4" font-size="30.0" fill="#000000" font-weight="700">Modifier une maladie</text>
+<text x="312.0" y="75.1" font-size="20.0" fill="#767674" font-weight="500">Le catalogue alimente le diagnostic assisté</text>
+</g>
+<g clip-path="url(#z19modifierunemaladie_2)">
+<g transform="translate(312.0,122.0)"><svg fill="none" height="22" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24" width="22"><path d="M15 19 L8 12 L15 5"></path></svg></g>
+<text x="342.0" y="141.1" font-size="20.0" fill="#333333" font-weight="600">Retour au catalogue</text>
+<rect x="312.0" y="166.0" width="880.0" height="682.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="337.0" y="212.1" font-size="20.0" fill="#767674" font-weight="500">Nom de la maladie</text>
+<rect x="337.0" y="223.0" width="407.0" height="48.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="354.0" y="255.1" font-size="20.0" fill="#333333" font-weight="500">Maladie de Newcastle</text>
+<text x="760.0" y="212.1" font-size="20.0" fill="#767674" font-weight="500">Filière concernée</text>
+<rect x="760.0" y="223.0" width="407.0" height="48.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="777.0" y="255.1" font-size="20.0" fill="#333333" font-weight="500">Volaille</text>
+<g transform="translate(1132.0,238.0)"><svg fill="none" height="18" stroke="#767674" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="18"><path d="M5 9l7 7 7-7"></path></svg></g>
+<text x="337.0" y="308.1" font-size="20.0" fill="#767674" font-weight="500">Niveau de gravité</text>
+<rect x="337.0" y="319.0" width="415.0" height="48.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="354.0" y="351.1" font-size="20.0" fill="#333333" font-weight="500">Élevé</text>
+<g transform="translate(717.0,334.0)"><svg fill="none" height="18" stroke="#767674" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="18"><path d="M5 9l7 7 7-7"></path></svg></g>
+<text x="337.0" y="404.1" font-size="20.0" fill="#767674" font-weight="500">Symptômes principaux</text>
+<rect x="337.0" y="415.0" width="830.0" height="96.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="354.0" y="449.1" font-size="20.0" fill="#333333" font-weight="500">Toux, diarrhée verdâtre, torticolis, chute de ponte</text>
+<text x="337.0" y="548.1" font-size="20.0" fill="#767674" font-weight="500">Médicaments et posologie</text>
+<rect x="337.0" y="559.0" width="830.0" height="96.0" rx="8.0" fill="#ffffff" stroke="#d8d8d5" stroke-width="1.0"/>
+<text x="354.0" y="593.1" font-size="20.0" fill="#333333" font-weight="500">Aucun traitement de première intention — orientation vétérinaire directe</text>
+<rect x="337.0" y="675.0" width="830.0" height="80.0" rx="8.0" fill="#fdeee1"/>
+</g>
+<g clip-path="url(#z19modifierunemaladie_3)">
+<rect x="337.0" y="675.0" width="3.0" height="80.0" fill="#f4a259"/>
+<text x="358.0" y="710.1" font-size="20.0" fill="#333333" font-weight="500">Cette maladie est signalée 38 fois ce mois. Toute modification est immédiatement</text>
+<text x="358.0" y="736.1" font-size="20.0" fill="#333333" font-weight="500">visible par les éleveurs et prise en compte par le chatbot.</text>
+</g>
+<g clip-path="url(#z19modifierunemaladie_2)">
+<rect x="337.0" y="775.0" width="151.7" height="48.0" rx="8.0" fill="#146b66"/>
+<text x="363.0" y="807.1" font-size="20.0" fill="#ffffff" font-weight="700">Enregistrer</text>
+<rect x="500.7" y="775.0" width="124.0" height="48.0" rx="8.0" fill="none" stroke="#146b66" stroke-width="1.0"/>
+<text x="527.7" y="807.1" font-size="20.0" fill="#146b66" font-weight="700">Annuler</text>
+<rect x="636.7" y="775.0" width="269.1" height="48.0" rx="8.0" fill="none" stroke="#c43d3d" stroke-width="1.0"/>
+<text x="663.7" y="807.1" font-size="20.0" fill="#c43d3d" font-weight="700">Supprimer du catalogue</text>
+</g>
+</g>
+</svg>

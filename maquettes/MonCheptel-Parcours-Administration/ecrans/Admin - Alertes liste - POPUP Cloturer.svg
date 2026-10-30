@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="338" viewBox="0 0 600 338" font-family="Roboto, Helvetica, Arial, sans-serif">
+<title>Admin - Alertes liste - POPUP Cloturer</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="600" height="338"/></clipPath></defs>
+<g clip-path="url(#frame)">
+<defs><clipPath id="zAdminAlerteslistePOPUPCl_0"><rect x="0" y="0" width="600" height="338"/></clipPath></defs>
+<g clip-path="url(#zAdminAlerteslistePOPUPCl_0)">
+<rect x="0.0" y="0.0" width="600.0" height="338.0" rx="8.0" fill="#ffffff"/>
+<rect x="268.0" y="36.0" width="64.0" height="64.0" rx="32.0" fill="#e4efee"/>
+<g transform="translate(284.0,52.0)"><svg fill="none" height="32" stroke="#146B66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="32"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></g>
+<text x="172.8" y="137.4" font-size="26.0" fill="#000000" font-weight="700">Clôturer cette alerte ?</text>
+<text x="52.1" y="175.1" font-size="20.0" fill="#767674" font-weight="500">L'alerte « Maladie de Newcastle — Bamako » passera en</text>
+<text x="74.5" y="201.1" font-size="20.0" fill="#767674" font-weight="500">terminée et disparaîtra du tableau de bord des 742</text>
+<text x="210.2" y="227.1" font-size="20.0" fill="#767674" font-weight="500">éleveurs concernés.</text>
+<rect x="94.0" y="254.0" width="200.0" height="48.0" rx="8.0" fill="#146b66"/>
+<text x="124.9" y="286.1" font-size="20.0" fill="#ffffff" font-weight="700">Clôturer l'alerte</text>
+<rect x="306.0" y="254.0" width="200.0" height="48.0" rx="8.0" fill="none" stroke="#146b66" stroke-width="1.0"/>
+<text x="371.0" y="286.1" font-size="20.0" fill="#146b66" font-weight="700">Annuler</text>
+</g>
+</g>
+</svg>

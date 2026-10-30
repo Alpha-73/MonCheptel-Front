@@ -1,0 +1,97 @@
+flowchart LR
+  e0["Tableau de bord"]
+  e1["Utilisateurs liste"]
+  e2["Utilisateur fiche"]
+  e3["Utilisateur modifier"]
+  e4["Veterinaires liste"]
+  e5["Veterinaire creer"]
+  e6["Veterinaire modifier"]
+  e7["Maladies catalogue"]
+  e8["Maladie creer"]
+  e9["Maladie modifier"]
+  e10["Conseils moderation"]
+  e11["Conseil creer"]
+  e12["Alertes liste"]
+  e13["Alerte declencher"]
+  e14["Alerte modifier"]
+  e15["Statistiques"]
+  e16["Utilisateur fiche - POPUP Desactiver"]
+  e17["Veterinaire modifier - POPUP Desactiver"]
+  e18["Maladie modifier - POPUP Supprimer"]
+  e19["Conseils moderation - POPUP Valider"]
+  e20["Conseils moderation - POPUP Publie"]
+  e21["Conseils moderation - POPUP Retirer"]
+  e22["Alertes liste - POPUP Cloturer"]
+  e0 -->|"Déclencher une alerte"| e13
+  e0 -->|"UTILISATEURS"| e1
+  e0 -->|"ALERTES ACTIVES"| e12
+  e0 -->|"ALERTES ENVOYÉES"| e12
+  e0 -->|"VÉTÉRINAIRES"| e4
+  e0 -->|"MALADIES SIGNALÉES"| e7
+  e0 -->|"CONSEILS PUBLIÉS"| e10
+  e1 -->|"Mamadou Traoré"| e2
+  e1 -->|"Fanta Keïta"| e2
+  e1 -->|"Ibrahim Sangaré"| e2
+  e1 -->|"Aminata Coulibaly"| e2
+  e1 -->|"Sekou Diallo"| e2
+  e1 -->|"Oumar Bah"| e2
+  e2 -->|"Retour à la liste"| e1
+  e2 -.->|"Désactiver ce compte"| e16
+  e16 -->|"Désactiver le compte"| e1
+  e16 -.->|"Annuler"| e2
+  e3 -->|"Retour à la fiche"| e2
+  e3 -->|"Enregistrer les modifications"| e2
+  e3 -->|"Annuler"| e2
+  e4 -->|"Créer un compte vétérinaire"| e5
+  e4 -->|"Dr Aïssata Traoré"| e6
+  e4 -->|"Dr Moussa Diarra"| e6
+  e4 -->|"Dr Fatoumata Cissé"| e6
+  e4 -->|"Dr Souleymane Koné"| e6
+  e5 -->|"Retour à la liste"| e4
+  e5 -->|"Créer le compte"| e4
+  e5 -->|"Annuler"| e4
+  e6 -->|"Retour à la liste"| e4
+  e6 -->|"Enregistrer"| e4
+  e6 -->|"Annuler"| e4
+  e6 -.->|"Désactiver ce compte"| e17
+  e17 -->|"Désactiver"| e4
+  e17 -.->|"Annuler"| e6
+  e7 -->|"Ajouter une maladie"| e8
+  e7 -->|"Maladie de Newcastle"| e9
+  e7 -->|"Coccidiose"| e9
+  e7 -->|"Bronchite infectieuse"| e9
+  e7 -->|"Fièvre aphteuse"| e9
+  e7 -->|"Diarrhée néonatale"| e9
+  e7 -->|"Peste des petits ruminants"| e9
+  e8 -->|"Retour au catalogue"| e7
+  e9 -->|"Retour au catalogue"| e7
+  e9 -->|"Enregistrer"| e7
+  e9 -->|"Annuler"| e7
+  e9 -.->|"Supprimer du catalogue"| e18
+  e18 -->|"Oui, retirer"| e7
+  e18 -.->|"Annuler"| e9
+  e10 -.->|"Valider"| e19
+  e10 -.->|"Retirer"| e21
+  e19 -.->|"Oui, publier"| e20
+  e19 -.->|"Annuler"| e10
+  e20 -.->|"Terminer"| e10
+  e21 -.->|"Oui, retirer"| e10
+  e21 -.->|"Annuler"| e10
+  e11 -->|"Retour à la modération"| e10
+  e11 -->|"Publier le conseil"| e10
+  e11 -->|"Annuler"| e10
+  e12 -->|"Nouvelle alerte"| e13
+  e12 -->|"Maladie de Newcastle"| e14
+  e12 -->|"Fièvre aphteuse"| e14
+  e12 -->|"Peste des petits ruminants"| e14
+  e12 -->|"Coccidiose"| e14
+  e12 -.->|"Désactiver"| e22
+  e22 -.->|"Clôturer l'alerte"| e12
+  e22 -.->|"Annuler"| e12
+  e13 -->|"Retour aux alertes"| e12
+  e13 -->|"Déclencher l'alerte"| e12
+  e13 -->|"Annuler"| e12
+  e14 -->|"Retour aux alertes"| e12
+  e14 -->|"Enregistrer"| e12
+  e14 -->|"Annuler"| e12
+  e14 -.->|"Clôturer l'alerte"| e22

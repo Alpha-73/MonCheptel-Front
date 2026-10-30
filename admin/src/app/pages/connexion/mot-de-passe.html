@@ -1,0 +1,39 @@
+<div class="page">
+  <section class="panneau">
+    <div class="marque">
+      <img src="marque/logo-clair.svg" alt="MonCheptel, le compagnon des éleveurs connectés" width="366" height="186" />
+      <small>Administration</small>
+    </div>
+    <p class="accroche">Pour sécuriser votre compte, remplacez le mot de passe provisoire qui vous a été envoyé.</p>
+  </section>
+
+  <section class="cote-formulaire">
+    <form class="carte-connexion" [formGroup]="formulaire" (ngSubmit)="enregistrer()" novalidate>
+      <h1>Nouveau mot de passe</h1>
+      <span class="trait-marque" aria-hidden="true"></span>
+      <p class="aide">Remplacez le mot de passe provisoire : 8 caractères au moins.</p>
+
+      @if (erreur(); as message) {
+        <div class="message-erreur" id="erreur-formulaire" role="alert">{{ message }}</div>
+      }
+
+      <div class="champ">
+        <label for="ancien">Mot de passe provisoire</label>
+        <div class="avec-oeil"><input #champAncien id="ancien" type="password" formControlName="ancien" autocomplete="current-password" /><app-oeil [cible]="champAncien" /></div>
+      </div>
+      <div class="champ" [class.invalide]="formulaire.controls.nouveau.touched && (formulaire.controls.nouveau.invalid || formulaire.hasError('inchange'))">
+        <label for="nouveau">Nouveau mot de passe</label>
+        <div class="avec-oeil"><input #champNouveau id="nouveau" type="password" formControlName="nouveau" autocomplete="new-password" [attr.aria-invalid]="formulaire.controls.nouveau.touched && (formulaire.controls.nouveau.invalid || formulaire.hasError('inchange')) ? 'true' : null" aria-describedby="erreur-formulaire" /><app-oeil [cible]="champNouveau" /></div>
+      </div>
+      <div class="champ" [class.invalide]="formulaire.controls.confirmation.touched && formulaire.hasError('differents')">
+        <label for="confirmation">Confirmer le nouveau mot de passe</label>
+        <div class="avec-oeil"><input #champConfirmation id="confirmation" type="password" formControlName="confirmation" autocomplete="new-password" [attr.aria-invalid]="formulaire.controls.confirmation.touched && formulaire.hasError('differents') ? 'true' : null" aria-describedby="erreur-formulaire" /><app-oeil [cible]="champConfirmation" /></div>
+      </div>
+
+      <button type="submit" class="bouton bouton-primaire plein" [disabled]="envoi()">
+        {{ envoi() ? 'Enregistrement…' : 'Enregistrer le mot de passe' }}
+      </button>
+      <button type="button" class="lien-action neutre note" (click)="deconnecter()">Se déconnecter</button>
+    </form>
+  </section>
+</div>

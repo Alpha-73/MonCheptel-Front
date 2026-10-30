@@ -1,0 +1,42 @@
+// Barres horizontales : 12 px d'épaisseur, bout arrondi côté donnée, carré
+// côté base ; 2 px de fond entre segments. Les trois colonnes (libellé,
+// barre, valeur) sont partagées par toutes les lignes (subgrid) : toutes les
+// barres ont la même échelle.
+:host { display: block; margin-top: 12px; }
+
+.graphique {
+  position: relative; display: grid; grid-template-columns: var(--col-libelle, minmax(84px, 32%)) minmax(0, 1fr) auto;
+  column-gap: 12px; row-gap: 2px;
+}
+.ligne {
+  grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center;
+  min-height: 34px; padding: 3px 6px; margin: 0 -6px; border-radius: 8px; outline: none;
+  transition: background-color .15s, opacity .2s;
+  &:focus-visible { box-shadow: inset 0 0 0 2px rgba(20, 107, 102, 0.35); }
+  &.active { background: var(--survol-ligne); }
+}
+.survol .ligne:not(.active) { opacity: .55; }
+
+.libelle {
+  display: flex; flex-direction: column; min-width: 0;
+  span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; line-height: 17px; color: var(--texte); }
+  small { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; line-height: 14px; color: var(--gris); }
+  small i { width: 8px; height: 8px; border-radius: 2px; }
+}
+
+.piste { position: relative; height: 100%; display: flex; align-items: center; border-left: 1px solid #cbd3d0; }
+.barre {
+  display: flex; gap: 2px; height: 12px; border-radius: 0 4px 4px 0; overflow: hidden;
+  transform-origin: left center; animation: etirer .65s cubic-bezier(.2, .7, .2, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 60ms + 120ms);
+}
+.segment { flex: 1 1 0; min-width: 2px; }
+
+.valeur {
+  display: flex; align-items: baseline; justify-content: flex-end; gap: 6px; white-space: nowrap;
+  strong { font-size: 13px; font-weight: 700; color: var(--titre); font-variant-numeric: tabular-nums; }
+  small { min-width: 34px; text-align: right; font-size: 12px; color: var(--gris); font-variant-numeric: tabular-nums; }
+}
+
+@keyframes etirer { from { transform: scaleX(0); } }
+@media (prefers-reduced-motion: reduce) { .barre { animation: none; } }

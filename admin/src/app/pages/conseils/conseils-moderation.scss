@@ -1,0 +1,56 @@
+.titre { max-width: 380px; }
+.nowrap { white-space: nowrap; }
+.actions { white-space: nowrap; text-align: right; }
+.actions > * + * { margin-left: 12px; }
+
+// Titre cliquable : déplie l'aperçu du conseil sous la ligne.
+.bascule {
+  display: inline-flex; align-items: flex-start; gap: 8px; padding: 0; border: 0; background: none; cursor: pointer; text-align: left;
+  font: inherit; font-weight: 700; color: var(--titre);
+  app-icone { flex: none; margin-top: 2px; color: var(--gris-fort); transform: rotate(-90deg); transition: transform .2s; }
+  &[aria-expanded='true'] app-icone { transform: none; color: var(--vert); }
+  &:hover span { text-decoration: underline; color: var(--vert); }
+}
+.motif-retrait { display: block; margin: 4px 0 0 24px; font-size: 12.5px; color: var(--rouge-texte); }
+tr.deplie td { border-bottom-color: transparent; }
+.ligne-apercu td {
+  padding: 4px 24px 18px 48px; background: var(--entete-tableau);
+  animation: deplier .2s ease-out;
+  .surtitre { font-size: 12px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase; color: var(--gris-fort); }
+  p { margin: 6px 0 0; max-width: 760px; font-size: 14px; line-height: 21px; color: var(--texte); white-space: pre-line; }
+}
+@keyframes deplier { from { opacity: 0; transform: translateY(-4px); } }
+
+.apercu {
+  margin-top: 14px; padding: 14px 16px; border-radius: var(--rayon-petit); background: var(--fond); text-align: left;
+  .surtitre { font-size: 12px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase; color: var(--gris-fort); }
+  strong { display: block; margin-top: 6px; font-family: var(--police-titre); font-size: 16px; color: var(--titre); }
+  p {
+    margin: 6px 0 0; font-size: 14px; line-height: 20px; color: var(--texte); white-space: pre-line;
+  }
+}
+.motif { margin-top: 16px; text-align: left; }
+
+// Nom d'auteur cliquable : filtre la liste sur ses conseils.
+.lien-auteur {
+  padding: 2px 6px; margin: -2px -6px; border: 0; border-radius: 6px; background: none; cursor: pointer;
+  font: inherit; color: var(--texte); text-align: left;
+  &:hover { color: var(--vert); text-decoration: underline; }
+  &[aria-pressed='true'] { background: var(--vert-pale); color: var(--vert); font-weight: 800; }
+}
+
+// Puce unique du filtre auteur, sous la barre d'outils.
+.filtre-auteur {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px;
+  margin: -4px 0 14px; padding: 10px 10px 10px 16px; border-radius: var(--rayon-petit);
+  background: var(--vert-pale); color: var(--texte); font-size: 14px;
+  strong { color: var(--vert); font-weight: 800; }
+  .bilan { color: var(--gris-fort); }
+}
+.retirer-filtre {
+  display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 12px;
+  border: 1px solid var(--vert); border-radius: 15px; background: var(--blanc); cursor: pointer;
+  font: inherit; font-size: 13px; font-weight: 800; color: var(--vert);
+  span { font-size: 17px; line-height: 1; }
+  &:hover { background: var(--vert); color: var(--blanc); }
+}

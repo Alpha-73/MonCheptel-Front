@@ -1,0 +1,53 @@
+<app-en-tete titre="Maladies" sousTitre="Catalogue du diagnostic assisté et de l'orientation">
+  <a class="bouton bouton-primaire" routerLink="/maladies/nouvelle" aria-label="Ajouter une maladie">
+    <app-icone nom="plus" [taille]="18" [epaisseur]="2.4" />Ajouter une maladie
+  </a>
+</app-en-tete>
+
+<div class="contenu">
+  <div class="barre-outils">
+    <app-onglets libelle="Statut des maladies" ident="statut-maladies" [options]="onglets()" [(valeur)]="vue" />
+    <app-recherche placeholder="Rechercher une maladie…" [(valeur)]="recherche" />
+    <app-filtre libelle="Filière" [options]="optionsFiliere" [(valeur)]="filiere" />
+    <app-filtre libelle="Gravité" [options]="optionsGravite" [(valeur)]="gravite" />
+  </div>
+
+  <div role="tabpanel" id="statut-maladies-panneau" [attr.aria-labelledby]="'statut-maladies-onglet-' + vue()">
+  @if (liste.erreur(); as erreur) {
+    <app-etat type="erreur" [message]="erreur" (reessayer)="liste.charger()" />
+  } @else if (!liste.donnees()) {
+    <div class="carte"><app-etat type="chargement" message="Chargement du catalogue…" /></div>
+  } @else {
+    <table class="tableau">
+      <caption class="visuellement-cache">Maladies {{ vue() === 'RETIREES' ? 'retirées' : 'au catalogue' }}</caption>
+      <thead>
+        <tr><th scope="col">Maladie</th><th scope="col">Filière</th><th scope="col">Gravité</th><th scope="col">Symptômes</th><th scope="col">Vétérinaires</th><th><span class="visuellement-cache">Action</span></th></tr>
+      </thead>
+      <tbody>
+        @for (m of affichees(); track m.id) {
+          <tr class="lien-ligne" [class.retiree]="m.active === false">
+            <td>
+              <a class="etendu nom" [routerLink]="['/maladies', m.id]">{{ m.nom }}</a>
+              @if (m.active === false) { <span class="badge gris">Retirée</span> }
+              @if (m.ajouteePar) { <div class="auteur">Ajoutée par {{ m.ajouteePar }}</div> }
+            </td>
+            <td>{{ m.filieres | filieres }}</td>
+            <td><span [class]="'badge ' + couleurGravite(m.gravite)">{{ m.gravite | libelle: 'gravite' }}</span></td>
+            <td class="symptomes">{{ m.symptomesTexte || '—' }}</td>
+            <td class="nowrap">{{ m.veterinairesCompetents ? pluriel(m.veterinairesCompetents, 'vétérinaire') : 'Aucun' }}</td>
+            <td class="fin">
+              <a class="icone-action" [routerLink]="['/maladies', m.id]" [attr.aria-label]="'Modifier ' + m.nom" tabindex="-1">
+                <app-icone nom="crayon" [taille]="18" [epaisseur]="2" />
+              </a>
+            </td>
+          </tr>
+        } @empty {
+          <tr class="ligne-etat"><td colspan="6">
+            <app-etat type="vide" [message]="duStatut().length ? 'Aucune maladie ne correspond à ces critères.' : (vue() === 'RETIREES' ? 'Aucune maladie retirée.' : 'Le catalogue est vide.')" />
+          </td></tr>
+        }
+      </tbody>
+    </table>
+  }
+  </div>
+</div>
